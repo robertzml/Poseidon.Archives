@@ -14,22 +14,22 @@ namespace Poseidon.Archives.Core.DAL.Mongo
     using Poseidon.Archives.Core.IDAL;
 
     /// <summary>
-    /// 目录数据访问类
+    /// 档案数据访问类
     /// </summary>
-    internal class DirectoryRepository : AbstractDALMongo<Directory>, IDirectoryRepository
+    internal class DocumentRepository : AbstractDALMongo<Document>, IDocumentRepository
     {
         #region Field
         /// <summary>
         /// 模型类型
         /// </summary>
-        private readonly string modelType = Utility.ModelTypeCode.Directory;
+        private readonly string modelType = Utility.ModelTypeCode.Document;
         #endregion //Field
 
         #region Constructor
         /// <summary>
-        /// 目录数据访问类
+        /// 档案数据访问类
         /// </summary>
-        public DirectoryRepository()
+        public DocumentRepository()
         {
             base.Init("core_file");
         }
@@ -41,9 +41,9 @@ namespace Poseidon.Archives.Core.DAL.Mongo
         /// </summary>
         /// <param name="doc">Bson文档</param>
         /// <returns></returns>
-        protected override Directory DocToEntity(BsonDocument doc)
+        protected override Document DocToEntity(BsonDocument doc)
         {
-            Directory entity = new Directory();
+            Document entity = new Document();
             entity.Id = doc["_id"].ToString();
             entity.Name = doc["name"].ToString();
             entity.ModelType = doc["modelType"].ToString();
@@ -73,7 +73,7 @@ namespace Poseidon.Archives.Core.DAL.Mongo
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <returns></returns>
-        protected override BsonDocument EntityToDoc(Directory entity)
+        protected override BsonDocument EntityToDoc(Document entity)
         {
             BsonDocument doc = new BsonDocument
             {
@@ -101,11 +101,11 @@ namespace Poseidon.Archives.Core.DAL.Mongo
 
         #region Method
         /// <summary>
-        /// 添加目录
+        /// 添加档案
         /// </summary>
-        /// <param name="entity">目录对象</param>
+        /// <param name="entity">档案对象</param>
         /// <returns></returns>
-        public override Directory Create(Directory entity)
+        public override Document Create(Document entity)
         {
             entity.ModelType = this.modelType;
             entity.Status = 0;
