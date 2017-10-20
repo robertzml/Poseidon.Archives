@@ -44,11 +44,11 @@ namespace Poseidon.Archives.ClientDx
                 return new Tuple<bool, string>(false, errorMessage);
             }
 
-            //if (string.IsNullOrEmpty(this.txtMount.Text.Trim()))
-            //{
-            //    errorMessage = "挂载点不能为空";
-            //    return new Tuple<bool, string>(false, errorMessage);
-            //}
+            if (string.IsNullOrEmpty(this.txtMount.Text.Trim()))
+            {
+                errorMessage = "挂载点不能为空";
+                return new Tuple<bool, string>(false, errorMessage);
+            }
 
             return new Tuple<bool, string>(true, "");
         }
@@ -89,7 +89,7 @@ namespace Poseidon.Archives.ClientDx
                 Directory entity = new Directory();
                 SetEntity(entity);
 
-                BusinessFactory<DirectoryBusiness>.Instance.Create(entity);
+                BusinessFactory<DirectoryBusiness>.Instance.Create(entity, this.currentUser);
 
                 MessageUtil.ShowInfo("保存成功");
                 this.Close();
