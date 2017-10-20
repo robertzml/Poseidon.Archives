@@ -43,6 +43,9 @@ namespace Poseidon.Archives.Core.BL
             };
 
             entity.Type = (int)FileType.Directory;
+            entity.Size = 0;
+            entity.Extension = "";
+            entity.ContentType = "";
             entity.Status = 0;
             base.Create(entity);
         }

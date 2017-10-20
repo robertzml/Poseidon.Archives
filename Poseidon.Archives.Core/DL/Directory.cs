@@ -15,7 +15,11 @@ namespace Poseidon.Archives.Core.DL
     public class Directory : File
     {
         #region Property
-      
+        /// <summary>
+        /// 路径
+        /// </summary>
+        [Display(Name = "路径")]
+        public string Path { get; set; }
         #endregion //Property
     }
 }
