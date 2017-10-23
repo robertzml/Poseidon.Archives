@@ -13,6 +13,8 @@ namespace Poseidon.Archives.ClientDx
     using Poseidon.Base.Framework;
     using Poseidon.Base.System;
     using Poseidon.Winform.Base;
+    using Poseidon.Archives.Core.BL;
+    using Poseidon.Archives.Core.DL;
 
     /// <summary>
     /// 目录管理窗体
@@ -25,6 +27,24 @@ namespace Poseidon.Archives.ClientDx
             InitializeComponent();
         }
         #endregion //Constructor
+
+        #region Function
+        protected override void InitForm()
+        {
+            LoadDirectory();
+            base.InitForm();
+        }
+
+        /// <summary>
+        /// 载入目录
+        /// </summary>
+        private void LoadDirectory()
+        {
+            var data = BusinessFactory<DirectoryBusiness>.Instance.FindAll().ToList();
+
+            this.dirTree.Init(data);
+        }
+        #endregion //Function
 
         #region Event
         /// <summary>

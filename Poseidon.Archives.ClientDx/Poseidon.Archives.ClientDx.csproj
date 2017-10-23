@@ -120,6 +120,7 @@
     <EmbeddedResource Include="Overview\FrmArchivesOverview.resx">
       <DependentUpon>FrmArchivesOverview.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Directory.datasource" />
     <None Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup />

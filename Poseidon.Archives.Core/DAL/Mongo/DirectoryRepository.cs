@@ -103,6 +103,15 @@ namespace Poseidon.Archives.Core.DAL.Mongo
 
         #region Method
         /// <summary>
+        /// 查找所有对象
+        /// </summary>
+        /// <returns></returns>
+        public override IEnumerable<Directory> FindAll()
+        {
+            return base.FindListByField("modelType", this.modelType);
+        }
+
+        /// <summary>
         /// 添加目录
         /// </summary>
         /// <param name="entity">目录对象</param>

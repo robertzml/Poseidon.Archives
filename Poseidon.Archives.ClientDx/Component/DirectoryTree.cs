@@ -10,11 +10,29 @@ using System.Windows.Forms;
 
 namespace Poseidon.Archives.ClientDx
 {
-    public partial class DirectoryTree : UserControl
+    using Poseidon.Archives.Core.DL;
+
+    /// <summary>
+    /// 目录树控件
+    /// </summary>
+    public partial class DirectoryTree : DevExpress.XtraEditors.XtraUserControl
     {
+        #region Constructor
         public DirectoryTree()
         {
             InitializeComponent();
         }
+        #endregion //Constructor
+
+        #region Method
+        /// <summary>
+        /// 初始化文件夹树
+        /// </summary>
+        /// <param name="data"></param>
+        public void Init(List<Directory> data)
+        {
+            this.bsDirectory.DataSource = data;
+        }
+        #endregion //Method
     }
 }
