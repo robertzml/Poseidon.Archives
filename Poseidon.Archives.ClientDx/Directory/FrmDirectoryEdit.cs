@@ -18,18 +18,42 @@ namespace Poseidon.Archives.ClientDx
     using Poseidon.Archives.Core.DL;
 
     /// <summary>
-    /// 添加目录窗体
+    /// 编辑目录窗体
     /// </summary>
-    public partial class FrmDirectoryAdd : BaseSingleForm
+    public partial class FrmDirectoryEdit : BaseSingleForm
     {
+        #region Field
+        /// <summary>
+        /// 当前关联目录
+        /// </summary>
+        private Directory currentDirectory;
+        #endregion //Field
+
         #region Constructor
-        public FrmDirectoryAdd()
+        public FrmDirectoryEdit(string id)
         {
             InitializeComponent();
+            InitData(id);
         }
         #endregion //Constructor
 
         #region Function
+        private void InitData(string id)
+        {
+            this.currentDirectory = BusinessFactory<DirectoryBusiness>.Instance.FindById(id);
+        }
+
+        protected override void InitForm()
+        {
+            this.txtName.Text = this.currentDirectory.Name;
+            this.txtFileName.Text = this.currentDirectory.FileName;
+            this.txtMount.Text = this.currentDirectory.Mount;
+            this.txtDatasetCode.Text = this.currentDirectory.DatasetCode;
+            this.txtRemark.Text = this.currentDirectory.Remark;
+
+            base.InitForm();
+        }
+
         /// <summary>
         /// 输入检查
         /// </summary>
@@ -92,10 +116,10 @@ namespace Poseidon.Archives.ClientDx
 
             try
             {
-                Directory entity = new Directory();
+                var entity = BusinessFactory<DirectoryBusiness>.Instance.FindById(this.currentDirectory.Id);
                 SetEntity(entity);
 
-                BusinessFactory<DirectoryBusiness>.Instance.Create(entity, this.currentUser);
+                BusinessFactory<DirectoryBusiness>.Instance.Update(entity);
 
                 MessageUtil.ShowInfo("保存成功");
                 this.Close();
@@ -103,7 +127,6 @@ namespace Poseidon.Archives.ClientDx
             catch (PoseidonException pe)
             {
                 MessageUtil.ShowError(string.Format("保存失败，错误消息:{0}", pe.Message));
-                Logger.Instance.Exception("新增目录失败", pe);
             }
         }
         #endregion //Event

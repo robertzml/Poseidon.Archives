@@ -49,6 +49,17 @@ namespace Poseidon.Archives.Core.BL
             entity.Status = 0;
             base.Create(entity);
         }
+
+        /// <summary>
+        /// 编辑目录
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <param name="user">操作用户</param>
+        /// <returns></returns>
+        public bool Update(Directory entity, LoginUser user)
+        {
+            return base.Update(entity);
+        }
         #endregion //Method
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Archives.ClientDx
 {
-    partial class FrmDirectoryAdd
+    partial class FrmDirectoryEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtFileName = new DevExpress.XtraEditors.TextEdit();
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.txtMount = new DevExpress.XtraEditors.TextEdit();
             this.txtDatasetCode = new DevExpress.XtraEditors.TextEdit();
@@ -39,7 +40,6 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtFileName = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.plFill)).BeginInit();
             this.plFill.SuspendLayout();
@@ -49,6 +49,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFileName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatasetCode.Properties)).BeginInit();
@@ -58,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFileName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +92,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(384, 202);
-            this.groupControl1.TabIndex = 0;
+            this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "目录信息";
             // 
             // layoutControl1
@@ -109,6 +109,14 @@
             this.layoutControl1.Size = new System.Drawing.Size(380, 179);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(75, 36);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(293, 20);
+            this.txtFileName.StyleController = this.layoutControl1;
+            this.txtFileName.TabIndex = 1;
             // 
             // txtRemark
             // 
@@ -193,14 +201,6 @@
             this.layoutControlItem4.Text = "备注";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             // 
-            // txtFileName
-            // 
-            this.txtFileName.Location = new System.Drawing.Point(75, 36);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(293, 20);
-            this.txtFileName.StyleController = this.layoutControl1;
-            this.txtFileName.TabIndex = 1;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtFileName;
@@ -210,13 +210,13 @@
             this.layoutControlItem5.Text = "文件夹名";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
-            // FrmDirectoryAdd
+            // FrmDirectoryEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 262);
-            this.Name = "FrmDirectoryAdd";
-            this.Text = "添加目录";
+            this.Name = "FrmDirectoryEdit";
+            this.Text = "编辑目录";
             ((System.ComponentModel.ISupportInitialize)(this.plFill)).EndInit();
             this.plFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.plBottom)).EndInit();
@@ -225,6 +225,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFileName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatasetCode.Properties)).EndInit();
@@ -234,7 +235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFileName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
@@ -244,16 +244,16 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit txtName;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.TextEdit txtFileName;
         private DevExpress.XtraEditors.MemoEdit txtRemark;
         private DevExpress.XtraEditors.TextEdit txtMount;
         private DevExpress.XtraEditors.TextEdit txtDatasetCode;
+        private DevExpress.XtraEditors.TextEdit txtName;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.TextEdit txtFileName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
