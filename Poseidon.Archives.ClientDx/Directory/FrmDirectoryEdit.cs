@@ -95,7 +95,7 @@ namespace Poseidon.Archives.ClientDx
             entity.Mount = this.txtMount.Text;
             entity.Remark = this.txtRemark.Text;
 
-            entity.Path = entity.Mount + entity.Name;
+            entity.Path = entity.Mount + entity.FileName;
         }
         #endregion //Function
 
@@ -119,7 +119,7 @@ namespace Poseidon.Archives.ClientDx
                 var entity = BusinessFactory<DirectoryBusiness>.Instance.FindById(this.currentDirectory.Id);
                 SetEntity(entity);
 
-                BusinessFactory<DirectoryBusiness>.Instance.Update(entity);
+                BusinessFactory<DirectoryBusiness>.Instance.Update(entity, this.currentUser);
 
                 MessageUtil.ShowInfo("保存成功");
                 this.Close();

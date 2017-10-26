@@ -71,7 +71,7 @@ namespace Poseidon.Archives.ClientDx
             entity.Mount = this.txtMount.Text;
             entity.Remark = this.txtRemark.Text;
 
-            entity.Path = entity.Mount + entity.Name;
+            entity.Path = entity.Mount + entity.FileName;
         }
         #endregion //Function
 

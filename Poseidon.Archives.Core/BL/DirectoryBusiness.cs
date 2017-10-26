@@ -42,6 +42,13 @@ namespace Poseidon.Archives.Core.BL
                 Time = DateTime.Now
             };
 
+            entity.UpdateBy = new UpdateStamp
+            {
+                UserId = user.Id,
+                Name = user.Name,
+                Time = DateTime.Now
+            };
+
             entity.Type = (int)FileType.Directory;
             entity.Size = 0;
             entity.Extension = "";
@@ -58,6 +65,13 @@ namespace Poseidon.Archives.Core.BL
         /// <returns></returns>
         public bool Update(Directory entity, LoginUser user)
         {
+            entity.UpdateBy = new UpdateStamp
+            {
+                UserId = user.Id,
+                Name = user.Name,
+                Time = DateTime.Now
+            };
+
             return base.Update(entity);
         }
         #endregion //Method

@@ -56,6 +56,17 @@ namespace Poseidon.Archives.ClientDx
         {
             ChildFormManage.ShowDialogForm(typeof(FrmDirectoryAdd));
         }
+        
+        /// <summary>
+        /// 编辑目录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+
+        }
         #endregion //Event
     }
 }

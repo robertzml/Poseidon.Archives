@@ -33,6 +33,19 @@ namespace Poseidon.Archives.ClientDx
         {
             this.bsDirectory.DataSource = data;
         }
+
+        /// <summary>
+        /// 获取当前选中字典ID
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentSelectDictId()
+        {
+            var node = this.treeDir.Selection[0];
+            if (node == null)
+                return null;
+            else
+                return node["colId"].ToString();
+        }
         #endregion //Method
     }
 }
