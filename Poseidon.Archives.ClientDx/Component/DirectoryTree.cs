@@ -38,13 +38,13 @@ namespace Poseidon.Archives.ClientDx
         /// 获取当前选中字典ID
         /// </summary>
         /// <returns></returns>
-        public string GetCurrentSelectDictId()
+        public string GetCurrentSelectId()
         {
             var node = this.treeDir.Selection[0];
             if (node == null)
                 return null;
             else
-                return node["colId"].ToString();
+                return node["Id"].ToString();
         }
         #endregion //Method
     }

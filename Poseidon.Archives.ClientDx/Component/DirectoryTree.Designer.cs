@@ -75,6 +75,7 @@
             // 
             // colName
             // 
+            this.colName.Caption = "名称";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
@@ -83,6 +84,7 @@
             // 
             // colFileName
             // 
+            this.colFileName.Caption = "文件夹名";
             this.colFileName.FieldName = "FileName";
             this.colFileName.Name = "colFileName";
             this.colFileName.Visible = true;
@@ -91,6 +93,7 @@
             // 
             // colPath
             // 
+            this.colPath.Caption = "路径";
             this.colPath.FieldName = "Path";
             this.colPath.Name = "colPath";
             this.colPath.Visible = true;
@@ -99,6 +102,7 @@
             // 
             // colMount
             // 
+            this.colMount.Caption = "挂载点";
             this.colMount.FieldName = "Mount";
             this.colMount.Name = "colMount";
             this.colMount.Visible = true;
@@ -113,6 +117,7 @@
             // 
             // colDatasetCode
             // 
+            this.colDatasetCode.Caption = "数据集代码";
             this.colDatasetCode.FieldName = "DatasetCode";
             this.colDatasetCode.Name = "colDatasetCode";
             this.colDatasetCode.Visible = true;
@@ -121,6 +126,7 @@
             // 
             // colRemark
             // 
+            this.colRemark.Caption = "备注";
             this.colRemark.FieldName = "Remark";
             this.colRemark.Name = "colRemark";
             this.colRemark.Visible = true;
@@ -129,6 +135,7 @@
             // 
             // colStatus
             // 
+            this.colStatus.Caption = "状态";
             this.colStatus.FieldName = "Status";
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;

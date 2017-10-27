@@ -27,14 +27,41 @@ namespace Poseidon.Archives.Core.BL
         }
         #endregion //Constructor
 
+        #region Function
+        /// <summary>
+        /// 检查目录是否存在
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns></returns>
+        private bool CheckExist(Directory entity)
+        {
+            var find = this.baseDal.FindOneByField("path", entity.Path);
+            if (find == null)
+                return false;
+            else
+            {
+                if (find.Id == entity.Id)
+                    return false;
+                else
+                    return true;
+            }
+        }
+        #endregion //Function
+
         #region Method
         /// <summary>
         /// 添加目录
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
+        /// <returns>目录已存在返回false</returns>
         public void Create(Directory entity, LoginUser user)
         {
+            if (CheckExist(entity))
+            {
+                throw new PoseidonException("目录已存在");
+            }
+
             entity.CreateBy = new UpdateStamp
             {
                 UserId = user.Id,
@@ -55,6 +82,8 @@ namespace Poseidon.Archives.Core.BL
             entity.ContentType = "";
             entity.Status = 0;
             base.Create(entity);
+
+            return;
         }
 
         /// <summary>
@@ -62,9 +91,14 @@ namespace Poseidon.Archives.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        /// <returns></returns>
+        /// <returns>目录已存在返回false</returns>
         public bool Update(Directory entity, LoginUser user)
         {
+            if (CheckExist(entity))
+            {
+                throw new PoseidonException("目录已存在");
+            }
+
             entity.UpdateBy = new UpdateStamp
             {
                 UserId = user.Id,

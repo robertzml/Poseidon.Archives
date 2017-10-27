@@ -64,8 +64,12 @@ namespace Poseidon.Archives.ClientDx
         /// <param name="e"></param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            var id = this.dirTree.GetCurrentSelectId();
+            if (id == null)
+                return;
 
-
+            ChildFormManage.ShowDialogForm(typeof(FrmDirectoryEdit), new object[] { id });
+            LoadDirectory();
         }
         #endregion //Event
     }

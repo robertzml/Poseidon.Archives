@@ -127,6 +127,7 @@ namespace Poseidon.Archives.ClientDx
             catch (PoseidonException pe)
             {
                 MessageUtil.ShowError(string.Format("保存失败，错误消息:{0}", pe.Message));
+                Logger.Instance.Exception("编辑目录失败", pe);
             }
         }
         #endregion //Event
