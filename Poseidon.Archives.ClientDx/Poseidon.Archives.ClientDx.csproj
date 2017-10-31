@@ -90,6 +90,12 @@
     <Compile Include="Directory\FrmDirectoryEdit.Designer.cs">
       <DependentUpon>FrmDirectoryEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\FrmDocumentManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\FrmDocumentManage.Designer.cs">
+      <DependentUpon>FrmDocumentManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Overview\FrmArchivesManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Directory\FrmDirectoryManage.resx">
       <DependentUpon>FrmDirectoryManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FrmDocumentManage.resx">
+      <DependentUpon>FrmDocumentManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Overview\FrmArchivesManage.resx">
       <DependentUpon>FrmArchivesManage.cs</DependentUpon>

@@ -54,7 +54,7 @@ namespace Poseidon.Archives.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        /// <returns>目录已存在返回false</returns>
+        /// <returns></returns>
         public void Create(Directory entity, LoginUser user)
         {
             if (CheckExist(entity))
@@ -91,7 +91,7 @@ namespace Poseidon.Archives.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        /// <returns>目录已存在返回false</returns>
+        /// <returns></returns>
         public bool Update(Directory entity, LoginUser user)
         {
             if (CheckExist(entity))

@@ -42,9 +42,34 @@ namespace Poseidon.Archives.Core.BL
                 Time = DateTime.Now
             };
 
+            entity.UpdateBy = new UpdateStamp
+            {
+                UserId = user.Id,
+                Name = user.Name,
+                Time = DateTime.Now
+            };
+
             entity.Type = (int)FileType.Normal;
             entity.Status = 0;
             base.Create(entity);
+        }
+
+        /// <summary>
+        /// 编辑档案
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <param name="user">操作用户</param>
+        /// <returns></returns>
+        public bool Update(Document entity, LoginUser user)
+        {
+            entity.UpdateBy = new UpdateStamp
+            {
+                UserId = user.Id,
+                Name = user.Name,
+                Time = DateTime.Now
+            };
+
+            return base.Update(entity);
         }
         #endregion //Method
     }

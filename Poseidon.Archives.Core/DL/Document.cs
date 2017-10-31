@@ -15,6 +15,23 @@ namespace Poseidon.Archives.Core.DL
     public class Document : File
     {
         #region Property
+        /// <summary>
+        /// 路径
+        /// </summary>
+        [Display(Name = "路径")]
+        public string Path { get; set; }
+
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        [Display(Name = "版本号")]
+        public string Version { get; set; }
+
+        /// <summary>
+        /// 前版本
+        /// </summary>
+        [Display(Name = "前版本")]
+        public string PreviousId { get; set; }
 
         #endregion //Property
     }
