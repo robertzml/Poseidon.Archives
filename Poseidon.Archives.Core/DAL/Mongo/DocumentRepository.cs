@@ -54,6 +54,7 @@ namespace Poseidon.Archives.Core.DAL.Mongo
             entity.Mount = doc["mount"].ToString();
             entity.Type = doc["type"].ToInt32();
             entity.DatasetCode = doc["datasetCode"].ToString();
+            entity.DirectoryId = doc["directoryId"].ToString();
             entity.Path = doc["path"].ToString();
             entity.Version = doc["version"].ToString();
             entity.PreviousId = doc["previousId"].ToString();
@@ -97,6 +98,7 @@ namespace Poseidon.Archives.Core.DAL.Mongo
                 { "mount", entity.Mount },
                 { "type", entity.Type },
                 { "datasetCode", entity.DatasetCode },
+                { "directoryId", entity.DirectoryId },
                 { "path", entity.Path },
                 { "version", entity.Version },
                 { "previousId", entity.PreviousId },

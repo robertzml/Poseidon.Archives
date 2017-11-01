@@ -24,5 +24,10 @@ namespace Poseidon.Archives.Test
         {
             ChildFormManage.LoadMdiForm(this, typeof(FrmDirectoryManage));
         }
+
+        private void menuDocumentMan_Click(object sender, EventArgs e)
+        {
+            ChildFormManage.LoadMdiForm(this, typeof(FrmDocumentManage));
+        }
     }
 }

@@ -35,7 +35,9 @@
     <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Poseidon.Base">
       <HintPath>..\..\Assembly\Poseidon.Base.dll</HintPath>
@@ -90,11 +92,23 @@
     <Compile Include="Directory\FrmDirectoryEdit.Designer.cs">
       <DependentUpon>FrmDirectoryEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\DocumentGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\DocumentGrid.Designer.cs">
+      <DependentUpon>DocumentGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document\FrmDocumentManage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Document\FrmDocumentManage.Designer.cs">
       <DependentUpon>FrmDocumentManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\FrmDocumentAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\FrmDocumentAdd.Designer.cs">
+      <DependentUpon>FrmDocumentAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Overview\FrmArchivesManage.cs">
       <SubType>Form</SubType>
@@ -120,6 +134,9 @@
     <EmbeddedResource Include="Component\DirectoryTree.resx">
       <DependentUpon>DirectoryTree.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Component\DocumentGrid.resx">
+      <DependentUpon>DocumentGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Directory\FrmDirectoryAdd.resx">
       <DependentUpon>FrmDirectoryAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Directory\FrmDirectoryManage.resx">
       <DependentUpon>FrmDirectoryManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FrmDocumentAdd.resx">
+      <DependentUpon>FrmDocumentAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\FrmDocumentManage.resx">
       <DependentUpon>FrmDocumentManage.cs</DependentUpon>
@@ -139,6 +159,7 @@
       <DependentUpon>FrmArchivesOverview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Directory.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Document.datasource" />
     <None Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup />

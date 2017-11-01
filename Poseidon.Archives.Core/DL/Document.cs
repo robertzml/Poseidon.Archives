@@ -16,6 +16,12 @@ namespace Poseidon.Archives.Core.DL
     {
         #region Property
         /// <summary>
+        /// 目录ID
+        /// </summary>
+        [Display(Name = "目录ID")]
+        public string DirectoryId { get; set; }
+
+        /// <summary>
         /// 路径
         /// </summary>
         [Display(Name = "路径")]

@@ -45,5 +45,21 @@ namespace Poseidon.Archives.ClientDx
             this.dirTree.Init(data);
         }
         #endregion //Function
+
+        #region Event
+        /// <summary>
+        /// 添加文档
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddDocument_Click(object sender, EventArgs e)
+        {
+            var dirId = this.dirTree.GetCurrentSelectId();
+            if (dirId == null)
+                return;
+
+            ChildFormManage.ShowDialogForm(typeof(FrmDocumentAdd), new object[] { dirId });
+        }
+        #endregion //Event
     }
 }

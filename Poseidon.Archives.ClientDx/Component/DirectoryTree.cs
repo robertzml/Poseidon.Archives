@@ -35,7 +35,7 @@ namespace Poseidon.Archives.ClientDx
         }
 
         /// <summary>
-        /// 获取当前选中字典ID
+        /// 获取当前选中目录ID
         /// </summary>
         /// <returns></returns>
         public string GetCurrentSelectId()
