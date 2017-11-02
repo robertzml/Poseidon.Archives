@@ -81,6 +81,9 @@ namespace Poseidon.Archives.Core.BL
             entity.Extension = "";
             entity.ContentType = "";
             entity.Status = 0;
+
+            entity.Path = entity.Mount + entity.FileName + "/";
+
             base.Create(entity);
 
             return;
@@ -105,6 +108,8 @@ namespace Poseidon.Archives.Core.BL
                 Name = user.Name,
                 Time = DateTime.Now
             };
+
+            entity.Path = entity.Mount + entity.FileName + "/";
 
             return base.Update(entity);
         }

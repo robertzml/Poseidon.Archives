@@ -55,6 +55,7 @@ namespace Poseidon.Archives.ClientDx
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ChildFormManage.ShowDialogForm(typeof(FrmDirectoryAdd));
+            LoadDirectory();
         }
         
         /// <summary>

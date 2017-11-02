@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,9 +51,21 @@ namespace Poseidon.Archives.ClientDx
                 return new Tuple<bool, string>(false, errorMessage);
             }
 
+            if (this.txtFileName.Text.IndexOfAny(Path.GetInvalidPathChars()) > 0)
+            {
+                errorMessage = "文件夹名含有非法字符";
+                return new Tuple<bool, string>(false, errorMessage);
+            }
+
             if (string.IsNullOrEmpty(this.txtMount.Text.Trim()))
             {
                 errorMessage = "挂载点不能为空";
+                return new Tuple<bool, string>(false, errorMessage);
+            }
+
+            if (this.txtMount.Text[this.txtMount.Text.Length - 1] != '/')
+            {
+                errorMessage = "挂载点必须以/结尾";
                 return new Tuple<bool, string>(false, errorMessage);
             }
 
@@ -70,8 +83,6 @@ namespace Poseidon.Archives.ClientDx
             entity.DatasetCode = this.txtDatasetCode.Text;
             entity.Mount = this.txtMount.Text;
             entity.Remark = this.txtRemark.Text;
-
-            entity.Path = entity.Mount + entity.FileName;
         }
         #endregion //Function
 

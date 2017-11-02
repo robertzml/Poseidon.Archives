@@ -77,6 +77,29 @@ namespace Poseidon.Archives.ClientDx
 
             return new Tuple<bool, string>(true, "");
         }
+
+        /// <summary>
+        /// 设置实体
+        /// </summary>
+        /// <param name="entity"></param>
+        private void SetEntity(Document entity)
+        {
+            entity.Name = this.txtName.Text;
+            entity.FileName = this.txtFileName.Text;
+            entity.DatasetCode = this.txtDatasetCode.Text;
+            entity.Mount = this.txtMount.Text;
+            entity.Remark = this.txtRemark.Text;
+
+            entity.Size = 0;
+            entity.Extension = "";
+            entity.ContentType = "";
+
+            entity.Version = "0.1";
+            entity.PreviousId = "";
+            entity.DirectoryId = this.parentDirectory.Id;
+
+            entity.Path = entity.Mount + entity.FileName;
+        }
         #endregion  //Function
 
         #region Event
@@ -87,7 +110,28 @@ namespace Poseidon.Archives.ClientDx
         /// <param name="e"></param>
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            var input = CheckInput();
+            if (!input.Item1)
+            {
+                MessageUtil.ShowError(input.Item2);
+                return;
+            }
 
+            try
+            {
+                Document entity = new Document();
+                SetEntity(entity);
+
+                BusinessFactory<DocumentBusiness>.Instance.Create(entity, this.currentUser);
+
+                MessageUtil.ShowInfo("保存成功");
+                this.Close();
+            }
+            catch (PoseidonException pe)
+            {
+                MessageUtil.ShowError(string.Format("保存失败，错误消息:{0}", pe.Message));
+                Logger.Instance.Exception("新增档案失败", pe);
+            }
         }
         #endregion //Event
     }
