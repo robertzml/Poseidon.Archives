@@ -29,6 +29,16 @@ namespace Poseidon.Archives.Core.BL
 
         #region Method
         /// <summary>
+        /// 按目录查询档案
+        /// </summary>
+        /// <param name="directoryId">目录ID</param>
+        /// <returns></returns>
+        public IEnumerable<Document> FindByDirecotry(string directoryId)
+        {
+            return this.baseDal.FindListByField("directoryId", directoryId);
+        }
+
+        /// <summary>
         /// 添加档案
         /// </summary>
         /// <param name="entity">实体对象</param>

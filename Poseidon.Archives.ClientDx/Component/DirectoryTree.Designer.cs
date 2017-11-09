@@ -46,6 +46,8 @@
             // 
             // treeDir
             // 
+            this.treeDir.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightBlue;
+            this.treeDir.Appearance.FocusedCell.Options.UseBackColor = true;
             this.treeDir.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colId,
             this.colName,
@@ -66,6 +68,7 @@
             this.treeDir.ParentFieldName = "Mount";
             this.treeDir.Size = new System.Drawing.Size(339, 405);
             this.treeDir.TabIndex = 0;
+            this.treeDir.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeDir_FocusedNodeChanged);
             // 
             // colId
             // 
@@ -153,6 +156,7 @@
             this.Controls.Add(this.treeDir);
             this.Name = "DirectoryTree";
             this.Size = new System.Drawing.Size(339, 405);
+            this.Load += new System.EventHandler(this.DirectoryTree_Load);
             ((System.ComponentModel.ISupportInitialize)(this.treeDir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDirectory)).EndInit();
             this.ResumeLayout(false);

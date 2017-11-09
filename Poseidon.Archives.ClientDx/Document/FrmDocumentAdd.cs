@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +105,24 @@ namespace Poseidon.Archives.ClientDx
 
         #region Event
         /// <summary>
+        /// 选择文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bteFile_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                this.bteFile.Text = dialog.FileName;
+                this.txtName.Text = Path.GetFileNameWithoutExtension(dialog.FileName);
+                this.txtExtension.Text = Path.GetExtension(dialog.FileName);
+                this.txtSize.Text = (new FileInfo(dialog.FileName).Length).ToString();
+            }
+        }
+
+        /// <summary>
         /// 保存文档
         /// </summary>
         /// <param name="sender"></param>
@@ -134,5 +153,6 @@ namespace Poseidon.Archives.ClientDx
             }
         }
         #endregion //Event
+
     }
 }

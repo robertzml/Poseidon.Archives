@@ -18,9 +18,11 @@ namespace Poseidon.Archives.ClientDx
     /// </summary>
     public partial class DocumentGrid : WinEntityGrid<Document>
     {
+        #region Constructor
         public DocumentGrid()
         {
             InitializeComponent();
         }
+        #endregion //Constructor
     }
 }

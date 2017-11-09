@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,22 @@ namespace Poseidon.Archives.Core.BL
                     return true;
             }
         }
+
+        /// <summary>
+        /// 检查目录名是否含有非法字符
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns></returns>
+        private bool CheckInvalidChar(Directory entity)
+        {
+            if (entity.FileName.IndexOfAny(Path.GetInvalidPathChars()) > 0)            
+                return false;
+
+            if (entity.FileName.IndexOfAny(new char[] { '/', '\\', '?', '#', '!', '@', '&', '$' }) > 0)
+                return false;
+
+            return true;
+        }
         #endregion //Function
 
         #region Method
@@ -60,6 +77,10 @@ namespace Poseidon.Archives.Core.BL
             if (CheckExist(entity))
             {
                 throw new PoseidonException("目录已存在");
+            }
+            if (!CheckInvalidChar(entity))
+            {
+                throw new PoseidonException("文件夹名含有非法字符");
             }
 
             entity.CreateBy = new UpdateStamp
@@ -100,6 +121,10 @@ namespace Poseidon.Archives.Core.BL
             if (CheckExist(entity))
             {
                 throw new PoseidonException("目录已存在");
+            }
+            if (!CheckInvalidChar(entity))
+            {
+                throw new PoseidonException("文件夹名含有非法字符");
             }
 
             entity.UpdateBy = new UpdateStamp

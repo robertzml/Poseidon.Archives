@@ -17,6 +17,13 @@ namespace Poseidon.Archives.ClientDx
     /// </summary>
     public partial class DirectoryTree : DevExpress.XtraEditors.XtraUserControl
     {
+        #region Field
+        /// <summary>
+        /// 启用简单视图
+        /// </summary>
+        private bool simpleView = false;
+        #endregion //Field
+
         #region Constructor
         public DirectoryTree()
         {
@@ -47,5 +54,56 @@ namespace Poseidon.Archives.ClientDx
                 return node["Id"].ToString();
         }
         #endregion //Method
+        
+        #region Delegate
+        /// <summary>
+        /// 目录选择
+        /// </summary>
+        [Description("目录选择")]
+        public event EventHandler DirectorySelected;
+        #endregion //Delegate
+
+        #region Event
+        private void DirectoryTree_Load(object sender, EventArgs e)
+        {
+            this.colName.Visible = !this.simpleView;
+            this.colPath.Visible = !this.simpleView;
+            this.colMount.Visible = !this.simpleView;
+            this.colDatasetCode.Visible = !this.simpleView;
+            this.colRemark.Visible = !this.simpleView;
+            this.colStatus.Visible = !this.simpleView;
+        }
+
+        /// <summary>
+        /// 目录选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeDir_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            DirectorySelected?.Invoke(sender, e);
+        }
+        #endregion //Event
+
+
+        #region Property
+        /// <summary>
+        /// 启用简单视图
+        /// </summary>
+        [Description("启用简单视图"), Browsable(true), Category("界面")]
+        public bool SimpleView
+        {
+            get
+            {
+                return simpleView;
+            }
+
+            set
+            {
+                simpleView = value;
+            }
+        }
+        #endregion //Property
+
     }
 }

@@ -44,6 +44,16 @@ namespace Poseidon.Archives.ClientDx
 
             this.dirTree.Init(data);
         }
+
+        /// <summary>
+        /// 载入档案
+        /// </summary>
+        /// <param name="directoryId">目录ID</param>
+        private void LoadDocument(string directoryId)
+        {
+            var data = BusinessFactory<DocumentBusiness>.Instance.FindByDirecotry(directoryId);
+            this.docGrid.DataSource = data.ToList();
+        }
         #endregion //Function
 
         #region Event
@@ -60,6 +70,22 @@ namespace Poseidon.Archives.ClientDx
 
             ChildFormManage.ShowDialogForm(typeof(FrmDocumentAdd), new object[] { dirId });
         }
+
+        /// <summary>
+        /// 目录选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dirTree_DirectorySelected(object sender, EventArgs e)
+        {
+            var id = this.dirTree.GetCurrentSelectId();
+            if (string.IsNullOrEmpty(id))
+                return;
+
+            LoadDocument(id);
+        }
         #endregion //Event
+
+
     }
 }
