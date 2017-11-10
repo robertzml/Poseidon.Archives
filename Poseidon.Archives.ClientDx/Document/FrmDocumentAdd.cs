@@ -91,8 +91,8 @@ namespace Poseidon.Archives.ClientDx
             entity.Mount = this.txtMount.Text;
             entity.Remark = this.txtRemark.Text;
 
-            entity.Size = 0;
-            entity.Extension = "";
+            entity.Size = Convert.ToInt64(this.txtSize.Text);
+            entity.Extension = this.txtExtension.Text;
             entity.ContentType = "";
 
             entity.Version = "0.1";
@@ -117,6 +117,7 @@ namespace Poseidon.Archives.ClientDx
             {
                 this.bteFile.Text = dialog.FileName;
                 this.txtName.Text = Path.GetFileNameWithoutExtension(dialog.FileName);
+                this.txtFileName.Text = Path.GetFileName(dialog.FileName);
                 this.txtExtension.Text = Path.GetExtension(dialog.FileName);
                 this.txtSize.Text = (new FileInfo(dialog.FileName).Length).ToString();
             }

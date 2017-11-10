@@ -54,6 +54,33 @@ namespace Poseidon.Archives.ClientDx
             var data = BusinessFactory<DocumentBusiness>.Instance.FindByDirecotry(directoryId);
             this.docGrid.DataSource = data.ToList();
         }
+
+        /// <summary>
+        /// 显示文档信息
+        /// </summary>
+        /// <param name="document">选择文档</param>
+        private void DisplayDocumentInfo(Document document)
+        {
+            this.txtName.Text = document.Name;
+            this.txtFileName.Text = document.FileName;
+            this.txtPath.Text = document.Path;
+            this.txtMount.Text = document.Mount;
+            this.txtExtension.Text = document.Extension;
+            this.txtSize.Text = document.Size.ToString();
+        }
+
+        /// <summary>
+        /// 清空文档显示
+        /// </summary>
+        private void ClearDocumentInfo()
+        {
+            this.txtName.Text = "";
+            this.txtFileName.Text = "";
+            this.txtPath.Text = "";
+            this.txtMount.Text = "";
+            this.txtExtension.Text = "";
+            this.txtSize.Text = "";
+        }
         #endregion //Function
 
         #region Event
@@ -84,8 +111,24 @@ namespace Poseidon.Archives.ClientDx
 
             LoadDocument(id);
         }
+
+        /// <summary>
+        /// 文件选择
+        /// </summary>
+        /// <param name="arg1"></param>
+        /// <param name="arg2"></param>
+        private void docGrid_RowSelected(object arg1, EventArgs arg2)
+        {
+            var select = this.docGrid.GetCurrentSelect();
+            if (select == null)
+            {
+                ClearDocumentInfo();
+            }
+            else
+            {
+                DisplayDocumentInfo(select);
+            }
+        }
         #endregion //Event
-
-
     }
 }

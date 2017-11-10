@@ -89,85 +89,83 @@
             // 
             this.colDirectoryId.FieldName = "DirectoryId";
             this.colDirectoryId.Name = "colDirectoryId";
-            this.colDirectoryId.Visible = true;
-            this.colDirectoryId.VisibleIndex = 1;
             // 
             // colPath
             // 
             this.colPath.FieldName = "Path";
             this.colPath.Name = "colPath";
             this.colPath.Visible = true;
-            this.colPath.VisibleIndex = 2;
+            this.colPath.VisibleIndex = 1;
             // 
             // colVersion
             // 
             this.colVersion.FieldName = "Version";
             this.colVersion.Name = "colVersion";
             this.colVersion.Visible = true;
-            this.colVersion.VisibleIndex = 3;
+            this.colVersion.VisibleIndex = 2;
             // 
             // colPreviousId
             // 
             this.colPreviousId.FieldName = "PreviousId";
             this.colPreviousId.Name = "colPreviousId";
             this.colPreviousId.Visible = true;
-            this.colPreviousId.VisibleIndex = 4;
+            this.colPreviousId.VisibleIndex = 3;
             // 
             // colModelType
             // 
             this.colModelType.FieldName = "ModelType";
             this.colModelType.Name = "colModelType";
             this.colModelType.Visible = true;
-            this.colModelType.VisibleIndex = 5;
+            this.colModelType.VisibleIndex = 4;
             // 
             // colFileName
             // 
             this.colFileName.FieldName = "FileName";
             this.colFileName.Name = "colFileName";
             this.colFileName.Visible = true;
-            this.colFileName.VisibleIndex = 6;
+            this.colFileName.VisibleIndex = 5;
             // 
             // colExtension
             // 
             this.colExtension.FieldName = "Extension";
             this.colExtension.Name = "colExtension";
             this.colExtension.Visible = true;
-            this.colExtension.VisibleIndex = 7;
+            this.colExtension.VisibleIndex = 6;
             // 
             // colContentType
             // 
             this.colContentType.FieldName = "ContentType";
             this.colContentType.Name = "colContentType";
             this.colContentType.Visible = true;
-            this.colContentType.VisibleIndex = 8;
+            this.colContentType.VisibleIndex = 7;
             // 
             // colSize
             // 
             this.colSize.FieldName = "Size";
             this.colSize.Name = "colSize";
             this.colSize.Visible = true;
-            this.colSize.VisibleIndex = 9;
+            this.colSize.VisibleIndex = 8;
             // 
             // colMount
             // 
             this.colMount.FieldName = "Mount";
             this.colMount.Name = "colMount";
             this.colMount.Visible = true;
-            this.colMount.VisibleIndex = 10;
+            this.colMount.VisibleIndex = 9;
             // 
             // colType
             // 
             this.colType.FieldName = "Type";
             this.colType.Name = "colType";
             this.colType.Visible = true;
-            this.colType.VisibleIndex = 11;
+            this.colType.VisibleIndex = 10;
             // 
             // colDatasetCode
             // 
             this.colDatasetCode.FieldName = "DatasetCode";
             this.colDatasetCode.Name = "colDatasetCode";
             this.colDatasetCode.Visible = true;
-            this.colDatasetCode.VisibleIndex = 12;
+            this.colDatasetCode.VisibleIndex = 11;
             // 
             // colName
             // 
@@ -180,15 +178,13 @@
             // 
             this.colRemark.FieldName = "Remark";
             this.colRemark.Name = "colRemark";
-            this.colRemark.Visible = true;
-            this.colRemark.VisibleIndex = 13;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 14;
+            this.colStatus.VisibleIndex = 12;
             // 
             // colId
             // 
