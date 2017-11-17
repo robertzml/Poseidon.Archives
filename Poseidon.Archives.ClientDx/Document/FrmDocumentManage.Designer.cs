@@ -37,6 +37,7 @@
             this.docGrid = new Poseidon.Archives.ClientDx.DocumentGrid();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtType = new DevExpress.XtraEditors.TextEdit();
             this.txtMount = new DevExpress.XtraEditors.TextEdit();
             this.txtSize = new DevExpress.XtraEditors.TextEdit();
             this.txtExtension = new DevExpress.XtraEditors.TextEdit();
@@ -50,6 +51,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -61,6 +63,7 @@
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExtension.Properties)).BeginInit();
@@ -74,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -178,6 +182,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtType);
             this.layoutControl1.Controls.Add(this.txtMount);
             this.layoutControl1.Controls.Add(this.txtSize);
             this.layoutControl1.Controls.Add(this.txtExtension);
@@ -191,6 +196,14 @@
             this.layoutControl1.Size = new System.Drawing.Size(335, 403);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtType
+            // 
+            this.txtType.Location = new System.Drawing.Point(51, 156);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(272, 20);
+            this.txtType.StyleController = this.layoutControl1;
+            this.txtType.TabIndex = 10;
             // 
             // txtMount
             // 
@@ -250,7 +263,8 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(335, 403);
@@ -297,7 +311,7 @@
             this.layoutControlItem5.Control = this.txtSize;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(315, 263);
+            this.layoutControlItem5.Size = new System.Drawing.Size(315, 24);
             this.layoutControlItem5.Text = "大小";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(36, 14);
             // 
@@ -309,6 +323,15 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(315, 24);
             this.layoutControlItem6.Text = "挂载点";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(36, 14);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtType;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(315, 239);
+            this.layoutControlItem7.Text = "类型";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(36, 14);
             // 
             // FrmDocumentManage
             // 
@@ -329,6 +352,7 @@
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExtension.Properties)).EndInit();
@@ -342,6 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,5 +395,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.TextEdit txtType;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

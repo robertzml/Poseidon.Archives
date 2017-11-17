@@ -12,9 +12,11 @@ namespace Poseidon.Archives.ClientDx
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.System;
+    using Poseidon.Common;
     using Poseidon.Winform.Base;
     using Poseidon.Archives.Core.BL;
     using Poseidon.Archives.Core.DL;
+    using Poseidon.Core.Utility;
 
     /// <summary>
     /// 档案管理窗体
@@ -67,6 +69,7 @@ namespace Poseidon.Archives.ClientDx
             this.txtMount.Text = document.Mount;
             this.txtExtension.Text = document.Extension;
             this.txtSize.Text = document.Size.ToString();
+            this.txtType.Text = ((FileType)document.Type).DisplayName();
         }
 
         /// <summary>
@@ -80,6 +83,7 @@ namespace Poseidon.Archives.ClientDx
             this.txtMount.Text = "";
             this.txtExtension.Text = "";
             this.txtSize.Text = "";
+            this.txtType.Text = "";
         }
         #endregion //Function
 
