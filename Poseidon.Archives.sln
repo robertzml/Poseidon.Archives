@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poseidon.Archives.ClientDx"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poseidon.Archives.Test", "Poseidon.Archives.Test\Poseidon.Archives.Test.csproj", "{491ED275-D56F-446F-B5B5-ED5500D8DFC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poseidon.Archives.Caller", "Poseidon.Archives.Caller\Poseidon.Archives.Caller.csproj", "{DF684F13-473E-4C56-803A-8E1958343650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poseidon.Archives.UnitTest", "Poseidon.Archives.UnitTest\Poseidon.Archives.UnitTest.csproj", "{D131DA6C-1765-4EB9-B319-939554DE4414}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{491ED275-D56F-446F-B5B5-ED5500D8DFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491ED275-D56F-446F-B5B5-ED5500D8DFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491ED275-D56F-446F-B5B5-ED5500D8DFC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF684F13-473E-4C56-803A-8E1958343650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF684F13-473E-4C56-803A-8E1958343650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF684F13-473E-4C56-803A-8E1958343650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF684F13-473E-4C56-803A-8E1958343650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D131DA6C-1765-4EB9-B319-939554DE4414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D131DA6C-1765-4EB9-B319-939554DE4414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D131DA6C-1765-4EB9-B319-939554DE4414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D131DA6C-1765-4EB9-B319-939554DE4414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
