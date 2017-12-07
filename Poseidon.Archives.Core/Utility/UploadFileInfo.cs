@@ -26,6 +26,12 @@ namespace Poseidon.Archives.Core.Utility
         public string Remark { get; set; }
 
         /// <summary>
+        /// MD5散列
+        /// </summary>
+        [Display(Name = "MD5散列")]
+        public string MD5Hash { get; set; }
+
+        /// <summary>
         /// 文件路径
         /// </summary>
         [Display(Name = "文件路径")]

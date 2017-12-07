@@ -37,23 +37,6 @@ namespace Poseidon.Archives.Core.BL
         #endregion //Constructor
 
         #region Function
-        private void PartitionFile(UploadFileInfo file, long size)
-        {
-            using (FileStream fs = new FileStream(file.LocalPath, FileMode.Open))
-            {                
-                using (BinaryReader br = new BinaryReader(fs))
-                {
-                    
-                    int blockCount = Convert.ToInt32(size / this.maxBlockSize);
-
-                    for (int i = 0; i < blockCount; i++)
-                    {
-                           
-
-                    }
-                }
-            }
-        }
         #endregion //Function
 
         #region Method
@@ -86,43 +69,6 @@ namespace Poseidon.Archives.Core.BL
 
             FileStream fs = new FileStream(path, FileMode.Open);
             return fs;            
-        }
-
-        /// <summary>
-        /// 生成文件块
-        /// </summary>
-        /// <param name="files"></param>
-        /// <returns></returns>
-        public List<UploadBlockInfo> GenerateBlocks(List<UploadFileInfo> files)
-        {
-            List<UploadBlockInfo> blocks = new List<UploadBlockInfo>();
-
-            foreach(var file in files)
-            {
-                FileInfo fileInfo = new FileInfo(file.LocalPath);
-
-                if (fileInfo.Length > this.maxBlockSize)
-                {
-
-                }
-                else
-                {
-                    UploadBlockInfo block = new UploadBlockInfo();
-                    block.Name = file.Name;
-                    block.LocalPath = file.LocalPath;
-                    block.Remark = file.Remark;
-
-                    block.Md5Hash = Hasher.GetFileMD5Hash(file.LocalPath);
-                    block.BlockCount = 1;
-                    block.Sequence = 1;
-                    block.TotalMd5Hash = block.Md5Hash;
-
-                    blocks.Add(block);
-                }
-                
-            }
-
-            return blocks;
         }
         #endregion //Method
     }

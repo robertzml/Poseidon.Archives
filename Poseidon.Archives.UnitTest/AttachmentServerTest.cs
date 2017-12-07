@@ -149,6 +149,24 @@ namespace Poseidon.Attachment.UnitTest
                 }
             });
         }
+
+        [TestMethod]
+        public void TestUpload4()
+        {
+            string filePath = "E:/Test/dashboard.ejs";
+
+            UploadFileInfo info = new UploadFileInfo();
+            info.Name = "兔斯基";
+            info.Remark = "qwert";
+            info.MD5Hash = Hasher.GetFileMD5Hash(filePath);
+            info.LocalPath = filePath;
+
+            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Upload(info);
+
+            var attachment = result;
+
+            Assert.AreEqual(info.Name, attachment.Name);
+        }
         #endregion //Test
     }
 }

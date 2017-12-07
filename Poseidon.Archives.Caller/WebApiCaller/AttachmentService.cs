@@ -49,9 +49,6 @@ namespace Poseidon.Archives.Caller.WebApiCaller
             fileContent.Headers.ContentType = new MediaTypeHeaderValue(MimeMapping.GetMimeMapping(Path.GetFileName(uploadInfo.LocalPath)));
             fileContent.Headers.ContentType.CharSet = "utf-8";
 
-            string md5Hash = Hasher.GetFileMD5Hash(uploadInfo.LocalPath);
-            fileContent.Headers.Add("md5hash", md5Hash);
-
             return fileContent;
         }
 
@@ -78,6 +75,14 @@ namespace Poseidon.Archives.Caller.WebApiCaller
             };
             list.Add(remarkContent);
 
+            string md5Hash = Hasher.GetFileMD5Hash(uploadInfo.LocalPath);
+            var hashContent = new ByteArrayContent(Encoding.UTF8.GetBytes(md5Hash));
+            hashContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                Name = "md5hash"
+            };
+            list.Add(hashContent);
+
             return list;
         }
         #endregion //Function
@@ -95,7 +100,8 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                using (var content = new MultipartFormDataContent())//表明是通过multipart/form-data的方式上传数据  
+                //表明是通过multipart/form-data的方式上传数据  
+                using (var content = new MultipartFormDataContent())
                 {
                     content.Headers.ContentType.CharSet = "utf-8";
                     var fileContent = SetFileContent(data);
@@ -107,7 +113,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                         content.Add(byteContent);
                     }
 
-                    string url = this.host + "upload/";
+                    string url = this.host + "attachment/async-upload";
 
                     var response = await client.PostAsync(url, content);
 
@@ -127,12 +133,14 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                List<Task<Attachment>> tasks = new List<Task<Attachment>>();
                 foreach(var info in data)
                 {
                     //通过multipart/form-data的方式上传数据
                     using (var content = new MultipartFormDataContent())
                     {
                         content.Headers.ContentType.CharSet = "utf-8";
+
                         var fileContent = SetFileContent(info);
                         content.Add(fileContent);
 
@@ -149,10 +157,11 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                         response.EnsureSuccessStatusCode();
                         var entity = response.Content.ReadAsAsync<Attachment>();
 
-                        var task = await entity;
+                        var task = entity;
+                        tasks.Add(task);
                     }
                 }
-               
+
 
                 return null;
             }
@@ -170,7 +179,8 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                using (var content = new MultipartFormDataContent())//表明是通过multipart/form-data的方式上传数据  
+                //表明是通过multipart/form-data的方式上传数据
+                using (var content = new MultipartFormDataContent())
                 {
                     content.Headers.ContentType.CharSet = "utf-8";
                     var fileContent = SetFileContent(data);
@@ -182,7 +192,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                         content.Add(byteContent);
                     }
 
-                    string url = this.host + "upload/";
+                    string url = this.host + "attachment/async-upload";
 
                     var response = client.PostAsync(url, content).Result;
 
