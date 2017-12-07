@@ -84,7 +84,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\IAttachmentEntity.cs" />
     <Compile Include="Utility\ModelTypeCode.cs" />
-    <Compile Include="Utility\UploadInfo.cs" />
+    <Compile Include="Utility\UploadBlockInfo.cs" />
+    <Compile Include="Utility\UploadFileInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

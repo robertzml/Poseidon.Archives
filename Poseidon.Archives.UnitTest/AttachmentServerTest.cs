@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -76,7 +77,7 @@ namespace Poseidon.Attachment.UnitTest
         {
             string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\文档.doc";
 
-            UploadInfo info = new UploadInfo();
+            UploadFileInfo info = new UploadFileInfo();
             info.Name = "兔斯基";
             info.Remark = "8dfs";
             info.LocalPath = filePath;
@@ -96,7 +97,7 @@ namespace Poseidon.Attachment.UnitTest
         {
             string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\文档.doc";
 
-            UploadInfo info = new UploadInfo();
+            UploadFileInfo info = new UploadFileInfo();
             info.Name = "兔斯基";
             info.Remark = "qwert";
             info.LocalPath = filePath;
@@ -116,8 +117,37 @@ namespace Poseidon.Attachment.UnitTest
         {
             string id = "59648851672e2239b85b00d3";
             var stream = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Download(id);
+        }
 
-            
+
+        [TestMethod]
+        public void TestUpload3()
+        {
+            string[] files = new string[] { "E:/Test/poseidon.http", "E:/Test/dashboard.ejs" };
+
+            var message = new HttpRequestMessage();
+            var content = new MultipartFormDataContent();
+
+            foreach (var file in files)
+            {
+                var filestream = new FileStream(file, FileMode.Open);
+                var fileName = System.IO.Path.GetFileName(file);
+                content.Add(new StreamContent(filestream), "file", fileName);
+            }
+
+            message.Method = HttpMethod.Post;
+            message.Content = content;
+            message.RequestUri = new Uri("http://localhost:4341/api/attachment/upload");
+
+            var client = new HttpClient();
+            client.SendAsync(message).ContinueWith(task =>
+            {
+                Assert.IsTrue(task.Result.IsSuccessStatusCode);
+                if (task.Result.IsSuccessStatusCode)
+                {
+                    //do something with response
+                }
+            });
         }
         #endregion //Test
     }

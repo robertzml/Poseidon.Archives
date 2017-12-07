@@ -38,7 +38,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// </summary>
         /// <param name="uploadInfo">上传文件信息</param>
         /// <returns></returns>
-        private ByteArrayContent SetFileContent(UploadInfo uploadInfo)
+        private ByteArrayContent SetFileContent(UploadFileInfo uploadInfo)
         {
             var fileContent = new ByteArrayContent(File.ReadAllBytes(uploadInfo.LocalPath));
             fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
@@ -60,7 +60,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// </summary>
         /// <param name="uploadInfo">上传文件信息</param>
         /// <returns></returns>
-        private List<ByteArrayContent> SetFormContent(UploadInfo uploadInfo)
+        private List<ByteArrayContent> SetFormContent(UploadFileInfo uploadInfo)
         {
             List<ByteArrayContent> list = new List<ByteArrayContent>();
 
@@ -88,7 +88,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        public async Task<Attachment> UploadAsync(UploadInfo data)
+        public async Task<Attachment> UploadAsync(UploadFileInfo data)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -119,12 +119,51 @@ namespace Poseidon.Archives.Caller.WebApiCaller
             }
         }
 
+
+        public async Task<List<Attachment>> UploadAsync(List<UploadFileInfo> data)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                foreach(var info in data)
+                {
+                    //通过multipart/form-data的方式上传数据
+                    using (var content = new MultipartFormDataContent())
+                    {
+                        content.Headers.ContentType.CharSet = "utf-8";
+                        var fileContent = SetFileContent(info);
+                        content.Add(fileContent);
+
+                        var formContent = SetFormContent(info);
+                        foreach (var byteContent in formContent)
+                        {
+                            content.Add(byteContent);
+                        }
+
+                        string url = this.host + "upload/";
+
+                        var response = await client.PostAsync(url, content);
+
+                        response.EnsureSuccessStatusCode();
+                        var entity = response.Content.ReadAsAsync<Attachment>();
+
+                        var task = await entity;
+                    }
+                }
+               
+
+                return null;
+            }
+        }
+
         /// <summary>
         /// 同步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        public Attachment Upload(UploadInfo data)
+        public Attachment Upload(UploadFileInfo data)
         {
             using (HttpClient client = new HttpClient())
             {

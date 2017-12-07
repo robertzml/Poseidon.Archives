@@ -41,7 +41,7 @@ namespace Poseidon.Archives.Caller.WinformCaller
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        public async Task<Attachment> UploadAsync(UploadInfo data)
+        public async Task<Attachment> UploadAsync(UploadFileInfo data)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Poseidon.Archives.Caller.WinformCaller
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        public Attachment Upload(UploadInfo data)
+        public Attachment Upload(UploadFileInfo data)
         {
             throw new NotImplementedException();
         }

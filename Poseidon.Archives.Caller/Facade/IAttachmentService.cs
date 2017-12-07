@@ -21,14 +21,14 @@ namespace Poseidon.Archives.Caller.Facade
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        Task<Attachment> UploadAsync(UploadInfo data);
+        Task<Attachment> UploadAsync(UploadFileInfo data);
 
         /// <summary>
         /// 同步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
         /// <returns></returns>
-        Attachment Upload(UploadInfo data);
+        Attachment Upload(UploadFileInfo data);
 
         /// <summary>
         /// 同步下载附件

@@ -10,8 +10,9 @@ namespace Poseidon.Archives.Core.Utility
     /// <summary>
     /// 上传文件信息
     /// </summary>
-    public class UploadInfo
+    public class UploadFileInfo
     {
+        #region Property
         /// <summary>
         /// 名称
         /// </summary>
@@ -29,5 +30,6 @@ namespace Poseidon.Archives.Core.Utility
         /// </summary>
         [Display(Name = "文件路径")]
         public string LocalPath { get; set; }
+        #endregion //Property
     }
 }
