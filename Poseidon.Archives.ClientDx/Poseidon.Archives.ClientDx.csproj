@@ -128,6 +128,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Component\UploadFileGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UploadFileGrid.Designer.cs">
+      <DependentUpon>UploadFileGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\UploadTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\UploadTool.Designer.cs">
+      <DependentUpon>UploadTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\AttachmentTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,11 +164,11 @@
     <Compile Include="Utility\ImageAttachmentTool.Designer.cs">
       <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\UploadTool.cs">
+    <Compile Include="Utility\AttachmentListTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Utility\UploadTool.Designer.cs">
-      <DependentUpon>UploadTool.cs</DependentUpon>
+    <Compile Include="Utility\AttachmentListTool.Designer.cs">
+      <DependentUpon>AttachmentListTool.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Component\DocumentGrid.resx">
       <DependentUpon>DocumentGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\UploadFileGrid.resx">
+      <DependentUpon>UploadFileGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Directory\FrmDirectoryAdd.resx">
       <DependentUpon>FrmDirectoryAdd.cs</DependentUpon>
@@ -213,12 +228,16 @@
     <EmbeddedResource Include="Utility\ImageAttachmentTool.resx">
       <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utility\AttachmentListTool.resx">
+      <DependentUpon>AttachmentListTool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utility\UploadTool.resx">
       <DependentUpon>UploadTool.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Attachment.datasource" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Directory.datasource" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Document.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Archives.Core.Utility.UploadFileInfo.datasource" />
     <None Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup />

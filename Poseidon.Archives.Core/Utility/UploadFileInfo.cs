@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Poseidon.Archives.Core.Utility
 {
+    using Poseidon.Base.Framework;
+
     /// <summary>
     /// 上传文件信息
     /// </summary>
-    public class UploadFileInfo
+    public class UploadFileInfo : BaseEntity
     {
         #region Property
         /// <summary>
@@ -36,6 +38,36 @@ namespace Poseidon.Archives.Core.Utility
         /// </summary>
         [Display(Name = "文件路径")]
         public string LocalPath { get; set; }
+
+        /// <summary>
+        /// 上传状态
+        /// </summary>
+        [Display(Name = "上传状态")]
+        public UploadStatus Status { get; set; }
         #endregion //Property
+    }
+
+    /// <summary>
+    /// 上传状态
+    /// </summary>
+    public enum UploadStatus
+    {
+        /// <summary>
+        /// 未上传
+        /// </summary>
+        [Display(Name = "未上传")]
+        No = 0,
+
+        /// <summary>
+        /// 已上传
+        /// </summary>
+        [Display(Name = "已上传")]
+        Complete = 1,
+
+        /// <summary>
+        /// 上传失败
+        /// </summary>
+        [Display(Name = "上传失败")]
+        Error = 2
     }
 }
