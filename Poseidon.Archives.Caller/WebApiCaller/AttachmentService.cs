@@ -174,33 +174,41 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// <returns></returns>
         public Attachment Upload(UploadFileInfo data)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                //表明是通过multipart/form-data的方式上传数据
-                using (var content = new MultipartFormDataContent())
+                using (HttpClient client = new HttpClient())
                 {
-                    content.Headers.ContentType.CharSet = "utf-8";
-                    var fileContent = SetFileContent(data);
-                    content.Add(fileContent);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    var formContent = SetFormContent(data);
-                    foreach (var byteContent in formContent)
+                    //表明是通过multipart/form-data的方式上传数据
+                    using (var content = new MultipartFormDataContent())
                     {
-                        content.Add(byteContent);
+                        content.Headers.ContentType.CharSet = "utf-8";
+                        var fileContent = SetFileContent(data);
+                        content.Add(fileContent);
+
+                        var formContent = SetFormContent(data);
+                        foreach (var byteContent in formContent)
+                        {
+                            content.Add(byteContent);
+                        }
+
+                        string url = this.host + "attachment/async-upload";
+
+                        var response = client.PostAsync(url, content).Result;
+
+                        response.EnsureSuccessStatusCode();
+                        var entity = response.Content.ReadAsAsync<Attachment>().Result;
+
+                        return entity;
                     }
-
-                    string url = this.host + "attachment/async-upload";
-
-                    var response = client.PostAsync(url, content).Result;
-
-                    response.EnsureSuccessStatusCode();
-                    var entity = response.Content.ReadAsAsync<Attachment>().Result;
-
-                    return entity;
                 }
+            }
+            catch(Exception e)
+            {
+                Logger.Instance.Exception("同步上传附件异常", e);
+                return null;
             }
         }
 

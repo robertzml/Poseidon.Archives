@@ -128,8 +128,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\AttachmentTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\AttachmentTool.Designer.cs">
+      <DependentUpon>AttachmentTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FrmPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\FrmPreview.Designer.cs">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FrmUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\FrmUpload.Designer.cs">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ImageAttachmentTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\ImageAttachmentTool.Designer.cs">
+      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\UploadTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\UploadTool.Designer.cs">
+      <DependentUpon>UploadTool.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Poseidon.Archives.Caller\Poseidon.Archives.Caller.csproj">
+      <Project>{df684f13-473e-4c56-803a-8e1958343650}</Project>
+      <Name>Poseidon.Archives.Caller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Poseidon.Archives.Core\Poseidon.Archives.Core.csproj">
       <Project>{a471d3e6-53e2-4ed6-a507-c5f28e0e1c12}</Project>
       <Name>Poseidon.Archives.Core</Name>
@@ -167,6 +201,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utility\AttachmentTool.resx">
+      <DependentUpon>AttachmentTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\FrmPreview.resx">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\FrmUpload.resx">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\ImageAttachmentTool.resx">
+      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\UploadTool.resx">
+      <DependentUpon>UploadTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Attachment.datasource" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Directory.datasource" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Document.datasource" />
     <None Include="Properties\licenses.licx" />
