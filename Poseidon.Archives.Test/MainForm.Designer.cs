@@ -33,6 +33,8 @@
             this.menuDirectoryMan = new System.Windows.Forms.ToolStripMenuItem();
             this.档案管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDocumentMan = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUpload = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMultiUpload = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.目录管理ToolStripMenuItem,
-            this.档案管理ToolStripMenuItem});
+            this.档案管理ToolStripMenuItem,
+            this.menuUpload});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 25);
@@ -58,7 +61,7 @@
             // menuDirectoryMan
             // 
             this.menuDirectoryMan.Name = "menuDirectoryMan";
-            this.menuDirectoryMan.Size = new System.Drawing.Size(152, 22);
+            this.menuDirectoryMan.Size = new System.Drawing.Size(124, 22);
             this.menuDirectoryMan.Text = "目录管理";
             this.menuDirectoryMan.Click += new System.EventHandler(this.menuDirectoryMan_Click);
             // 
@@ -73,9 +76,24 @@
             // menuDocumentMan
             // 
             this.menuDocumentMan.Name = "menuDocumentMan";
-            this.menuDocumentMan.Size = new System.Drawing.Size(152, 22);
+            this.menuDocumentMan.Size = new System.Drawing.Size(124, 22);
             this.menuDocumentMan.Text = "档案管理";
             this.menuDocumentMan.Click += new System.EventHandler(this.menuDocumentMan_Click);
+            // 
+            // menuUpload
+            // 
+            this.menuUpload.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMultiUpload});
+            this.menuUpload.Name = "menuUpload";
+            this.menuUpload.Size = new System.Drawing.Size(68, 21);
+            this.menuUpload.Text = "上传测试";
+            // 
+            // menuMultiUpload
+            // 
+            this.menuMultiUpload.Name = "menuMultiUpload";
+            this.menuMultiUpload.Size = new System.Drawing.Size(152, 22);
+            this.menuMultiUpload.Text = "多文件上传";
+            this.menuMultiUpload.Click += new System.EventHandler(this.menuMultiUpload_Click);
             // 
             // MainForm
             // 
@@ -101,6 +119,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuDirectoryMan;
         private System.Windows.Forms.ToolStripMenuItem 档案管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuDocumentMan;
+        private System.Windows.Forms.ToolStripMenuItem menuUpload;
+        private System.Windows.Forms.ToolStripMenuItem menuMultiUpload;
     }
 }
 
