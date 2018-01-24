@@ -44,26 +44,46 @@ namespace Poseidon.Archives.ClientDx
         #endregion //Constructor
 
         #region Function
+        /// <summary>
+        /// 上传附件
+        /// </summary>
         private async void StartUpload()
         {
-            List<Task<Attachment>> tasks = new List<Task<Attachment>>();
+            int fileCount = this.uploadFileList.Count;
+
+            this.prgBar.Properties.Step = this.prgBar.Properties.Maximum / fileCount;
 
             foreach (var item in this.uploadFileList)
             {
-                var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(item);
-                                
-                var r = await task;
-
-                if (task.IsCompleted)
+                try
                 {
-                    item.Status = UploadStatus.Complete;
-                    this.attachmentList.Add(r);
+                    this.prgBar.PerformStep();
 
-                    this.uploadFileGrid.UpdateBindingData();
+                    if (item.Status == UploadStatus.Complete)
+                        continue;
+
+                    var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(item);
+
+                    var r = await task;
+
+                    if (task.IsCompleted)
+                    {
+                        item.Status = UploadStatus.Complete;
+                        item.Id = r.Id;
+                        this.attachmentList.Add(r);
+
+                        this.uploadFileGrid.UpdateBindingData();
+                    }
+                    else
+                        item.Status = UploadStatus.Error;
                 }
-                else
-                    item.Status = UploadStatus.Error;
+                catch(Exception e)
+                {
+                    MessageUtil.ShowWarning(e.Message);
+                }
             }
+
+            this.prgBar.Position = this.prgBar.Properties.Maximum;
         }
         #endregion //Function
 
@@ -111,7 +131,33 @@ namespace Poseidon.Archives.ClientDx
                 MessageUtil.ShowError(pe.Message);
             }
         }
-        
+
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var fileInfo = this.uploadFileGrid.GetCurrentSelect();
+            if (fileInfo == null)
+                return;
+
+            if (fileInfo.Status == UploadStatus.Error || fileInfo.Status == UploadStatus.No)
+            {
+                this.uploadFileList.Remove(fileInfo);
+                this.uploadFileGrid.UpdateBindingData();
+            }
+            else
+            {
+                CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(fileInfo.Id);
+                this.uploadFileList.Remove(fileInfo);
+
+                var attach = this.attachmentList.Single(r => r.Id == fileInfo.Id);
+                this.attachmentList.Remove(attach);
+            }
+        }
+
         /// <summary>
         /// 开始上传
         /// </summary>
@@ -122,5 +168,29 @@ namespace Poseidon.Archives.ClientDx
             StartUpload();
         }
         #endregion //Event
+
+        #region Property
+        /// <summary>
+        /// 待上传文件数据
+        /// </summary>
+        public List<UploadFileInfo> UploadFileList
+        {
+            get
+            {
+                return uploadFileList;
+            }
+        }
+
+        /// <summary>
+        /// 已上传文件数据
+        /// </summary>
+        public List<Attachment> AttachmentList
+        {
+            get
+            {
+                return attachmentList;
+            }
+        }
+        #endregion //Property
     }
 }

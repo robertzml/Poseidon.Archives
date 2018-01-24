@@ -124,49 +124,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 }
             }
         }
-
-
-        public async Task<List<Attachment>> UploadAsync(List<UploadFileInfo> data)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                List<Task<Attachment>> tasks = new List<Task<Attachment>>();
-                foreach(var info in data)
-                {
-                    //通过multipart/form-data的方式上传数据
-                    using (var content = new MultipartFormDataContent())
-                    {
-                        content.Headers.ContentType.CharSet = "utf-8";
-
-                        var fileContent = SetFileContent(info);
-                        content.Add(fileContent);
-
-                        var formContent = SetFormContent(info);
-                        foreach (var byteContent in formContent)
-                        {
-                            content.Add(byteContent);
-                        }
-
-                        string url = this.host + "upload/";
-
-                        var response = await client.PostAsync(url, content);
-
-                        response.EnsureSuccessStatusCode();
-                        var entity = response.Content.ReadAsAsync<Attachment>();
-
-                        var task = entity;
-                        tasks.Add(task);
-                    }
-                }
-
-
-                return null;
-            }
-        }
-
+        
         /// <summary>
         /// 同步上传单个附件
         /// </summary>
@@ -215,14 +173,14 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// <summary>
         /// 同步下载附件
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">附件ID</param>
         public Stream Download(string id)
         {
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
 
-                string url = this.host + "upload/" + id;
+                string url = this.host + "attachment/download/" + id;
 
                 var response = client.GetAsync(url).Result;
 
@@ -230,6 +188,32 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 {
                     var stream = response.Content.ReadAsStreamAsync().Result;
                     return stream;
+                }
+                else
+                {
+                    throw new PoseidonException(ErrorCode.HTTPError, response.StatusCode);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 删除附件
+        /// </summary>
+        /// <param name="id">附件ID</param>
+        /// <returns></returns>
+        public override bool Delete(string id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                string url = this.host + "attachment/delete/" + id;
+
+                var response = client.GetAsync(url).Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
                 }
                 else
                 {

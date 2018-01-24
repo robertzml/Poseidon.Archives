@@ -35,7 +35,7 @@ namespace Poseidon.Archives.Caller.Facade
         /// </summary>
         /// <param name="id"></param>
         Stream Download(string id);
-        
+
         /// <summary>
         /// 按文件夹获取附件
         /// </summary>
