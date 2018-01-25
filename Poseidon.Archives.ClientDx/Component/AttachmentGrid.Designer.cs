@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Archives.ClientDx
 {
-    partial class AttachmentTool
+    partial class AttachmentGrid
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttachmentTool));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttachmentGrid));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -64,10 +64,12 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.rgType = new DevExpress.XtraEditors.RadioGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgcAttachment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAttachment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentGridView)).BeginInit();
@@ -78,22 +80,24 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // dgcAttachment
             // 
             this.dgcAttachment.DataSource = this.bsAttachment;
-            this.dgcAttachment.Location = new System.Drawing.Point(2, 2);
+            this.dgcAttachment.Location = new System.Drawing.Point(2, 26);
             this.dgcAttachment.MainView = this.attachmentGridView;
             this.dgcAttachment.Name = "dgcAttachment";
             this.dgcAttachment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repActionButton,
             this.repoCardButton});
-            this.dgcAttachment.Size = new System.Drawing.Size(691, 396);
+            this.dgcAttachment.Size = new System.Drawing.Size(691, 374);
             this.dgcAttachment.TabIndex = 0;
             this.dgcAttachment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.attachmentGridView,
@@ -390,6 +394,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.searchControl1);
             this.layoutControl1.Controls.Add(this.rgType);
             this.layoutControl1.Controls.Add(this.dgcAttachment);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -400,16 +405,29 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // searchControl1
+            // 
+            this.searchControl1.Client = this.dgcAttachment;
+            this.searchControl1.Location = new System.Drawing.Point(29, 2);
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Properties.Client = this.dgcAttachment;
+            this.searchControl1.Size = new System.Drawing.Size(664, 20);
+            this.searchControl1.StyleController = this.layoutControl1;
+            this.searchControl1.TabIndex = 5;
+            // 
             // rgType
             // 
             this.rgType.EditValue = "GridView";
-            this.rgType.Location = new System.Drawing.Point(2, 402);
+            this.rgType.Location = new System.Drawing.Point(2, 404);
             this.rgType.Name = "rgType";
             this.rgType.Properties.Columns = 2;
             this.rgType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("GridView", "表格视图"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("CardView", "卡牌视图")});
-            this.rgType.Size = new System.Drawing.Size(691, 32);
+            this.rgType.Size = new System.Drawing.Size(691, 30);
             this.rgType.StyleController = this.layoutControl1;
             this.rgType.TabIndex = 4;
             this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
@@ -420,7 +438,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -430,27 +449,36 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgcAttachment;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(695, 400);
+            this.layoutControlItem1.Size = new System.Drawing.Size(695, 378);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.rgType;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 400);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 402);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(695, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(695, 34);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // AttachmentTool
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.searchControl1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(695, 24);
+            this.layoutControlItem3.Text = "搜索";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(24, 14);
+            // 
+            // AttachmentGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "AttachmentTool";
+            this.Name = "AttachmentGrid";
             this.Size = new System.Drawing.Size(699, 440);
             ((System.ComponentModel.ISupportInitialize)(this.dgcAttachment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAttachment)).EndInit();
@@ -462,10 +490,12 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,5 +536,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.SearchControl searchControl1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

@@ -110,6 +110,12 @@
     <Compile Include="Document\FrmDocumentAdd.Designer.cs">
       <DependentUpon>FrmDocumentAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Attachment\FrmAttachmentManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attachment\FrmAttachmentManage.Designer.cs">
+      <DependentUpon>FrmAttachmentManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\FrmMultiUpload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +152,11 @@
     <Compile Include="Utility\UploadTool.Designer.cs">
       <DependentUpon>UploadTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\AttachmentTool.cs">
+    <Compile Include="Component\AttachmentGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Utility\AttachmentTool.Designer.cs">
-      <DependentUpon>AttachmentTool.cs</DependentUpon>
+    <Compile Include="Component\AttachmentGrid.Designer.cs">
+      <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\FrmPreview.cs">
       <SubType>Form</SubType>
@@ -188,6 +194,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Attachment\FrmAttachmentManage.resx">
+      <DependentUpon>FrmAttachmentManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Component\DirectoryTree.resx">
       <DependentUpon>DirectoryTree.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,8 +231,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utility\AttachmentTool.resx">
-      <DependentUpon>AttachmentTool.cs</DependentUpon>
+    <EmbeddedResource Include="Component\AttachmentGrid.resx">
+      <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmMultiUpload.resx">
       <DependentUpon>FrmMultiUpload.cs</DependentUpon>

@@ -34,5 +34,10 @@ namespace Poseidon.Archives.Test
         {
             ChildFormManage.LoadMdiForm(this, typeof(FrmMultiUpload));
         }
+
+        private void menuAttachmentMan_Click(object sender, EventArgs e)
+        {
+            ChildFormManage.LoadMdiForm(this, typeof(FrmAttachmentManage));
+        }
     }
 }

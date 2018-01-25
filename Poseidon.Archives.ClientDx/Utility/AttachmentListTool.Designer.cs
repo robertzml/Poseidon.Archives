@@ -149,12 +149,12 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // UploadTool
+            // AttachmentListTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "UploadTool";
+            this.Name = "AttachmentListTool";
             this.Size = new System.Drawing.Size(315, 355);
             this.Load += new System.EventHandler(this.AttachmentTool_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

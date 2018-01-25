@@ -21,7 +21,7 @@ namespace Poseidon.Archives.ClientDx
     /// <summary>
     /// 附件工具
     /// </summary>
-    public partial class AttachmentTool : DevExpress.XtraEditors.XtraUserControl
+    public partial class AttachmentGrid : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
         /// <summary>
@@ -36,7 +36,7 @@ namespace Poseidon.Archives.ClientDx
         #endregion //Field
 
         #region Constructor
-        public AttachmentTool()
+        public AttachmentGrid()
         {
             InitializeComponent();
         }
@@ -174,7 +174,7 @@ namespace Poseidon.Archives.ClientDx
         /// <summary>
         /// 初始化
         /// </summary>
-        /// <param name="ids"></param>
+        /// <param name="ids">附件ID</param>
         public void Init(List<string> ids)
         {
             if (ids != null && ids.Count > 0)
@@ -185,12 +185,22 @@ namespace Poseidon.Archives.ClientDx
         }
 
         /// <summary>
-        /// 获取制定文件夹下附件
+        /// 获取指定文件夹下附件
         /// </summary>
-        /// <param name="folder"></param>
+        /// <param name="folder">文件夹</param>
         public void Init(string folder)
         {
             this.attachments = CallerFactory<IAttachmentService>.GetInstance(CallerType.Win).FindByFolder(folder).ToList();
+            this.bsAttachment.DataSource = attachments;
+        }
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="data">附件数据</param>
+        public void Init(List<Attachment> data)
+        {
+            this.attachments = data;
             this.bsAttachment.DataSource = attachments;
         }
 
