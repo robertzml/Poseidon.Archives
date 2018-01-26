@@ -39,6 +39,17 @@ namespace Poseidon.Archives.Core.DL
         [Display(Name = "前版本")]
         public string PreviousId { get; set; }
 
+        /// <summary>
+        /// 附件ID
+        /// </summary>
+        [Display(Name = "附件ID")]
+        public string AttachmentId { get; set; }
+
+        /// <summary>
+        /// MD5哈希
+        /// </summary>
+        [Display(Name = "MD5哈希")]
+        public string Md5Hash { get; set; }
         #endregion //Property
     }
 }

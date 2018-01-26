@@ -25,6 +25,11 @@ namespace Poseidon.Archives.ClientDx
     {
         #region Field
         /// <summary>
+        /// 是否显示上下文菜单
+        /// </summary>
+        private bool showContextMenu = false;
+
+        /// <summary>
         /// 相关附件
         /// </summary>
         private List<Attachment> attachments;
@@ -211,9 +216,36 @@ namespace Poseidon.Archives.ClientDx
         {
             this.attachments = null;
         }
+
+        /// <summary>
+        /// 获取选中数据
+        /// </summary>
+        /// <returns></returns>
+        public Attachment GetCurrentSelect()
+        {
+            int rowIndex = this.attachmentGridView.GetFocusedDataSourceRowIndex();
+            if (rowIndex < 0 || rowIndex >= this.bsAttachment.Count)
+                return null;
+            else
+                return this.bsAttachment[rowIndex] as Attachment;
+        }
+
         #endregion //Method
 
         #region Event
+        /// <summary>
+        /// 控件载入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AttachmentGrid_Load(object sender, EventArgs e)
+        {
+            if (this.showContextMenu)
+                this.dgcAttachment.ContextMenuStrip = this.contextMenuStrip1;
+            else
+                this.dgcAttachment.ContextMenuStrip = null;
+        }
+
         /// <summary>
         /// 操作按钮
         /// </summary>
@@ -243,6 +275,23 @@ namespace Poseidon.Archives.ClientDx
         {
             ChangeView(this.rgType.EditValue.ToString());
         }
+
+        /// <summary>
+        /// 删除附件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuDelete_Click(object sender, EventArgs e)
+        {
+            var select = GetCurrentSelect();
+            if (select == null)
+                return;
+
+            if (MessageUtil.ConfirmYesNo("是否删除指定附件:" + select.Name) == DialogResult.Yes)
+            {
+                CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(select.Id);
+            }
+        }
         #endregion //Event
 
         #region Property
@@ -265,6 +314,23 @@ namespace Poseidon.Archives.ClientDx
             get
             {
                 return this.attachments.Select(r => r.Id).ToList();
+            }
+        }
+
+        /// <summary>
+        /// 是否显示上下文菜单
+        /// </summary>
+        [Description("是否显示上下文菜单"), Category("界面"), Browsable(true)]
+        public bool ShowContextMenu
+        {
+            get
+            {
+                return showContextMenu;
+            }
+
+            set
+            {
+                showContextMenu = value;
             }
         }
         #endregion //Property

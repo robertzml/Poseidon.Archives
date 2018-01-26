@@ -52,6 +52,11 @@ namespace Poseidon.Archives.ClientDx
         {
             InitFolders();
 
+            if (this.currentUser.IsRoot)
+                this.attachmentGrid.ShowContextMenu = true;
+            else
+                this.attachmentGrid.ShowContextMenu = false;
+
             base.InitForm();
         }
         #endregion //Function

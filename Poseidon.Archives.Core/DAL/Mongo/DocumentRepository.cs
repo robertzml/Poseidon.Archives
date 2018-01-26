@@ -58,6 +58,8 @@ namespace Poseidon.Archives.Core.DAL.Mongo
             entity.Path = doc["path"].ToString();
             entity.Version = doc["version"].ToString();
             entity.PreviousId = doc["previousId"].ToString();
+            entity.AttachmentId = doc["attachmentId"].ToString();
+            entity.Md5Hash = doc["md5Hash"].ToString();
             entity.Remark = doc["remark"].ToString();
             entity.Status = doc["status"].ToInt32();
 
@@ -102,6 +104,8 @@ namespace Poseidon.Archives.Core.DAL.Mongo
                 { "path", entity.Path },
                 { "version", entity.Version },
                 { "previousId", entity.PreviousId },
+                { "attachmentId", entity.AttachmentId },
+                { "md5Hash", entity.Md5Hash },
                 { "createBy", new BsonDocument {
                     { "userId", entity.CreateBy.UserId },
                     { "name", entity.CreateBy.Name },

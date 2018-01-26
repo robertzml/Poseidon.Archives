@@ -32,11 +32,15 @@
             this.colPath = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVersion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPreviousId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAttachmentId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMd5Hash = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colModelType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colExtension = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContentType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSize = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreateBy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUpdateBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatasetCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,7 +59,7 @@
             // 
             // dgcEntity
             // 
-            this.dgcEntity.Size = new System.Drawing.Size(568, 378);
+            this.dgcEntity.Size = new System.Drawing.Size(660, 378);
             // 
             // dgvEntity
             // 
@@ -66,11 +70,15 @@
             this.colPath,
             this.colVersion,
             this.colPreviousId,
+            this.colAttachmentId,
+            this.colMd5Hash,
             this.colModelType,
             this.colFileName,
             this.colExtension,
             this.colContentType,
             this.colSize,
+            this.colCreateBy,
+            this.colUpdateBy,
             this.colMount,
             this.colType,
             this.colDatasetCode,
@@ -89,34 +97,44 @@
             // 
             this.colDirectoryId.FieldName = "DirectoryId";
             this.colDirectoryId.Name = "colDirectoryId";
+            this.colDirectoryId.Visible = true;
+            this.colDirectoryId.VisibleIndex = 1;
             // 
             // colPath
             // 
             this.colPath.FieldName = "Path";
             this.colPath.Name = "colPath";
             this.colPath.Visible = true;
-            this.colPath.VisibleIndex = 1;
+            this.colPath.VisibleIndex = 3;
             // 
             // colVersion
             // 
             this.colVersion.FieldName = "Version";
             this.colVersion.Name = "colVersion";
             this.colVersion.Visible = true;
-            this.colVersion.VisibleIndex = 2;
+            this.colVersion.VisibleIndex = 4;
             // 
             // colPreviousId
             // 
             this.colPreviousId.FieldName = "PreviousId";
             this.colPreviousId.Name = "colPreviousId";
-            this.colPreviousId.Visible = true;
-            this.colPreviousId.VisibleIndex = 3;
+            // 
+            // colAttachmentId
+            // 
+            this.colAttachmentId.FieldName = "AttachmentId";
+            this.colAttachmentId.Name = "colAttachmentId";
+            // 
+            // colMd5Hash
+            // 
+            this.colMd5Hash.FieldName = "Md5Hash";
+            this.colMd5Hash.Name = "colMd5Hash";
+            this.colMd5Hash.Visible = true;
+            this.colMd5Hash.VisibleIndex = 9;
             // 
             // colModelType
             // 
             this.colModelType.FieldName = "ModelType";
             this.colModelType.Name = "colModelType";
-            this.colModelType.Visible = true;
-            this.colModelType.VisibleIndex = 4;
             // 
             // colFileName
             // 
@@ -146,19 +164,29 @@
             this.colSize.Visible = true;
             this.colSize.VisibleIndex = 8;
             // 
+            // colCreateBy
+            // 
+            this.colCreateBy.FieldName = "CreateBy.Time";
+            this.colCreateBy.Name = "colCreateBy";
+            this.colCreateBy.Visible = true;
+            this.colCreateBy.VisibleIndex = 10;
+            // 
+            // colUpdateBy
+            // 
+            this.colUpdateBy.FieldName = "UpdateBy";
+            this.colUpdateBy.Name = "colUpdateBy";
+            // 
             // colMount
             // 
             this.colMount.FieldName = "Mount";
             this.colMount.Name = "colMount";
             this.colMount.Visible = true;
-            this.colMount.VisibleIndex = 9;
+            this.colMount.VisibleIndex = 2;
             // 
             // colType
             // 
             this.colType.FieldName = "Type";
             this.colType.Name = "colType";
-            this.colType.Visible = true;
-            this.colType.VisibleIndex = 10;
             // 
             // colDatasetCode
             // 
@@ -178,13 +206,15 @@
             // 
             this.colRemark.FieldName = "Remark";
             this.colRemark.Name = "colRemark";
+            this.colRemark.Visible = true;
+            this.colRemark.VisibleIndex = 12;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 12;
+            this.colStatus.VisibleIndex = 13;
             // 
             // colId
             // 
@@ -196,6 +226,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "DocumentGrid";
+            this.Size = new System.Drawing.Size(660, 378);
+            this.Load += new System.EventHandler(this.DocumentGrid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsEntity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgcEntity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntity)).EndInit();
@@ -205,21 +237,25 @@
 
         #endregion
 
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colDirectoryId;
         private DevExpress.XtraGrid.Columns.GridColumn colPath;
         private DevExpress.XtraGrid.Columns.GridColumn colVersion;
         private DevExpress.XtraGrid.Columns.GridColumn colPreviousId;
+        private DevExpress.XtraGrid.Columns.GridColumn colAttachmentId;
+        private DevExpress.XtraGrid.Columns.GridColumn colMd5Hash;
         private DevExpress.XtraGrid.Columns.GridColumn colModelType;
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
         private DevExpress.XtraGrid.Columns.GridColumn colExtension;
         private DevExpress.XtraGrid.Columns.GridColumn colContentType;
         private DevExpress.XtraGrid.Columns.GridColumn colSize;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreateBy;
+        private DevExpress.XtraGrid.Columns.GridColumn colUpdateBy;
         private DevExpress.XtraGrid.Columns.GridColumn colMount;
         private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraGrid.Columns.GridColumn colDatasetCode;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colRemark;
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
     }
 }
