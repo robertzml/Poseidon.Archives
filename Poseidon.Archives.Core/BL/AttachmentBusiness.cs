@@ -62,13 +62,13 @@ namespace Poseidon.Archives.Core.BL
             if (attachment == null)
                 throw new PoseidonException(ErrorCode.ObjectNotFound);
 
-            string path =Path.Combine(root, attachment.Folder, attachment.FileName);
+            string path = Path.Combine(root, attachment.Folder, attachment.FileName);
 
             if (!File.Exists(path)) //文件已删除
                 throw new PoseidonException(ErrorCode.ObjectDeleted);
 
             FileStream fs = new FileStream(path, FileMode.Open);
-            return fs;            
+            return fs;
         }
         #endregion //Method
     }

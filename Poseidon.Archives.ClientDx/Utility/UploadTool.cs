@@ -52,6 +52,7 @@ namespace Poseidon.Archives.ClientDx
             int fileCount = this.uploadFileList.Count;
 
             this.prgBar.Properties.Step = this.prgBar.Properties.Maximum / fileCount;
+            this.prgBar.Position = 0;
 
             foreach (var item in this.uploadFileList)
             {
@@ -77,7 +78,7 @@ namespace Poseidon.Archives.ClientDx
                     else
                         item.Status = UploadStatus.Error;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageUtil.ShowWarning(e.Message);
                 }
@@ -116,6 +117,7 @@ namespace Poseidon.Archives.ClientDx
                         UploadFileInfo info = new UploadFileInfo();
                         info.Name = Path.GetFileNameWithoutExtension(name);
                         info.LocalPath = name;
+                        info.Size = new FileInfo(name).Length / 1024;
                         info.MD5Hash = Hasher.GetFileMD5Hash(info.LocalPath);
                         info.Remark = "";
                         info.Status = 0;
@@ -126,7 +128,7 @@ namespace Poseidon.Archives.ClientDx
                     this.uploadFileGrid.UpdateBindingData();
                 }
             }
-            catch(Exception pe)
+            catch (Exception pe)
             {
                 MessageUtil.ShowError(pe.Message);
             }

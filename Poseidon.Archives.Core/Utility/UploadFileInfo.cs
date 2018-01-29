@@ -40,6 +40,12 @@ namespace Poseidon.Archives.Core.Utility
         public string LocalPath { get; set; }
 
         /// <summary>
+        /// 文件大小KB
+        /// </summary>
+        [Display(Name = "文件大小KB")]
+        public long Size { get; set; }
+
+        /// <summary>
         /// 上传状态
         /// </summary>
         [Display(Name = "上传状态")]

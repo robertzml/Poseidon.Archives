@@ -160,6 +160,7 @@
             this.docGrid.EnableMasterView = false;
             this.docGrid.EnableMultiSelect = false;
             this.docGrid.Location = new System.Drawing.Point(2, 21);
+            this.docGrid.Mode = 1;
             this.docGrid.Name = "docGrid";
             this.docGrid.ShowAddMenu = false;
             this.docGrid.ShowFooter = false;

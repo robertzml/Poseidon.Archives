@@ -33,6 +33,7 @@
             this.colMD5Hash = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLocalPath = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSize = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgcEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntity)).BeginInit();
@@ -49,9 +50,10 @@
             // dgvEntity
             // 
             this.dgvEntity.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colLocalPath,
             this.colName,
             this.colRemark,
+            this.colLocalPath,
+            this.colSize,
             this.colMD5Hash,
             this.colStatus});
             this.dgvEntity.IndicatorWidth = 40;
@@ -100,7 +102,16 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.OptionsColumn.AllowEdit = false;
             this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 4;
+            this.colStatus.VisibleIndex = 5;
+            // 
+            // colSize
+            // 
+            this.colSize.Caption = "文件大小(KB)";
+            this.colSize.FieldName = "Size";
+            this.colSize.Name = "colSize";
+            this.colSize.OptionsColumn.AllowEdit = false;
+            this.colSize.Visible = true;
+            this.colSize.VisibleIndex = 4;
             // 
             // UploadFileGrid
             // 
@@ -121,5 +132,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMD5Hash;
         private DevExpress.XtraGrid.Columns.GridColumn colLocalPath;
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
+        private DevExpress.XtraGrid.Columns.GridColumn colSize;
     }
 }
