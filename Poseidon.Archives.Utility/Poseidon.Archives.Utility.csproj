@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8422CFA-BB5A-4236-813F-3751606BDC2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poseidon.Archives.Utility</RootNamespace>
+    <AssemblyName>Poseidon.Archives.Utility</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Poseidon.Base">
+      <HintPath>..\..\Assembly\Poseidon.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Common">
+      <HintPath>..\..\Assembly\Poseidon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Winform.Base">
+      <HintPath>..\..\Assembly\Poseidon.Winform.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attachment\AttachmentGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attachment\AttachmentGrid.Designer.cs">
+      <DependentUpon>AttachmentGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\AttachmentListTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attachment\AttachmentListTool.Designer.cs">
+      <DependentUpon>AttachmentListTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\ImageAttachmentTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attachment\ImageAttachmentTool.Designer.cs">
+      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\UploadFileGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attachment\UploadFileGrid.Designer.cs">
+      <DependentUpon>UploadFileGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\UploadTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attachment\UploadTool.Designer.cs">
+      <DependentUpon>UploadTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMultiUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMultiUpload.Designer.cs">
+      <DependentUpon>FrmMultiUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPreview.Designer.cs">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUpload.Designer.cs">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Attachment\AttachmentGrid.resx">
+      <DependentUpon>AttachmentGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachment\AttachmentListTool.resx">
+      <DependentUpon>AttachmentListTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachment\ImageAttachmentTool.resx">
+      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachment\UploadFileGrid.resx">
+      <DependentUpon>UploadFileGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachment\UploadTool.resx">
+      <DependentUpon>UploadTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMultiUpload.resx">
+      <DependentUpon>FrmMultiUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPreview.resx">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUpload.resx">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poseidon.Archives.Caller\Poseidon.Archives.Caller.csproj">
+      <Project>{df684f13-473e-4c56-803a-8e1958343650}</Project>
+      <Name>Poseidon.Archives.Caller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Poseidon.Archives.Core\Poseidon.Archives.Core.csproj">
+      <Project>{a471d3e6-53e2-4ed6-a507-c5f28e0e1c12}</Project>
+      <Name>Poseidon.Archives.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

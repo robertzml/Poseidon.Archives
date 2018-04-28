@@ -158,18 +158,6 @@
     <Compile Include="Component\AttachmentGrid.Designer.cs">
       <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\FrmPreview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utility\FrmPreview.Designer.cs">
-      <DependentUpon>FrmPreview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utility\FrmUpload.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utility\FrmUpload.Designer.cs">
-      <DependentUpon>FrmUpload.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utility\ImageAttachmentTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +179,10 @@
     <ProjectReference Include="..\Poseidon.Archives.Core\Poseidon.Archives.Core.csproj">
       <Project>{a471d3e6-53e2-4ed6-a507-c5f28e0e1c12}</Project>
       <Name>Poseidon.Archives.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Poseidon.Archives.Utility\Poseidon.Archives.Utility.csproj">
+      <Project>{c8422cfa-bb5a-4236-813f-3751606bdc2a}</Project>
+      <Name>Poseidon.Archives.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -236,12 +228,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\FrmMultiUpload.resx">
       <DependentUpon>FrmMultiUpload.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\FrmPreview.resx">
-      <DependentUpon>FrmPreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\FrmUpload.resx">
-      <DependentUpon>FrmUpload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\ImageAttachmentTool.resx">
       <DependentUpon>ImageAttachmentTool.cs</DependentUpon>

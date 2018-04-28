@@ -1,4 +1,4 @@
-﻿namespace Poseidon.Archives.ClientDx
+﻿namespace Poseidon.Archives.Utility
 {
     partial class FrmPreview
     {

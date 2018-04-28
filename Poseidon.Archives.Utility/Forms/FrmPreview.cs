@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Poseidon.Archives.ClientDx
+namespace Poseidon.Archives.Utility
 {
     using Poseidon.Base.Framework;
     using Poseidon.Winform.Base;
