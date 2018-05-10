@@ -35,13 +35,13 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddFile = new DevExpress.XtraEditors.SimpleButton();
+            this.uploadFileGrid = new Poseidon.Archives.Utility.UploadFileGrid();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.uploadFileGrid = new Poseidon.Archives.Utility.UploadFileGrid();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -49,11 +49,11 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prgBar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -134,6 +134,26 @@
             this.btnAddFile.Text = "添加文件";
             this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
             // 
+            // uploadFileGrid
+            // 
+            this.uploadFileGrid.AllowFilter = false;
+            this.uploadFileGrid.AllowGroup = false;
+            this.uploadFileGrid.AllowSort = true;
+            this.uploadFileGrid.DataSource = null;
+            this.uploadFileGrid.Editable = true;
+            this.uploadFileGrid.EnableMasterView = false;
+            this.uploadFileGrid.EnableMultiSelect = false;
+            this.uploadFileGrid.Location = new System.Drawing.Point(12, 12);
+            this.uploadFileGrid.Name = "uploadFileGrid";
+            this.uploadFileGrid.ShowAddMenu = false;
+            this.uploadFileGrid.ShowFooter = false;
+            this.uploadFileGrid.ShowLineNumber = true;
+            this.uploadFileGrid.ShowMenu = false;
+            this.uploadFileGrid.ShowNavigator = false;
+            this.uploadFileGrid.Size = new System.Drawing.Size(587, 283);
+            this.uploadFileGrid.TabIndex = 4;
+            this.uploadFileGrid.Load += new System.EventHandler(this.uploadFileGrid_Load);
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -148,6 +168,15 @@
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(611, 351);
             this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.uploadFileGrid;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(591, 287);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
@@ -185,35 +214,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // uploadFileGrid
-            // 
-            this.uploadFileGrid.AllowFilter = false;
-            this.uploadFileGrid.AllowGroup = false;
-            this.uploadFileGrid.AllowSort = true;
-            this.uploadFileGrid.DataSource = null;
-            this.uploadFileGrid.Editable = true;
-            this.uploadFileGrid.EnableMasterView = false;
-            this.uploadFileGrid.EnableMultiSelect = false;
-            this.uploadFileGrid.Location = new System.Drawing.Point(12, 12);
-            this.uploadFileGrid.Name = "uploadFileGrid";
-            this.uploadFileGrid.ShowAddMenu = false;
-            this.uploadFileGrid.ShowFooter = false;
-            this.uploadFileGrid.ShowLineNumber = true;
-            this.uploadFileGrid.ShowMenu = false;
-            this.uploadFileGrid.ShowNavigator = false;
-            this.uploadFileGrid.Size = new System.Drawing.Size(587, 283);
-            this.uploadFileGrid.TabIndex = 4;
-            this.uploadFileGrid.Load += new System.EventHandler(this.uploadFileGrid_Load);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.uploadFileGrid;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(591, 287);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
             // UploadTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -228,11 +228,11 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prgBar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }

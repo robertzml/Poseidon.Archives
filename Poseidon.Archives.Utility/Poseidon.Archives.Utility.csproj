@@ -67,11 +67,11 @@
     <Compile Include="Attachment\AttachmentGrid.Designer.cs">
       <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attachment\AttachmentListTool.cs">
+    <Compile Include="Attachment\AttachmentUploadTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Attachment\AttachmentListTool.Designer.cs">
-      <DependentUpon>AttachmentListTool.cs</DependentUpon>
+    <Compile Include="Attachment\AttachmentUploadTool.Designer.cs">
+      <DependentUpon>AttachmentUploadTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Attachment\ImageAttachmentTool.cs">
       <SubType>UserControl</SubType>
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="Attachment\AttachmentGrid.resx">
       <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attachment\AttachmentListTool.resx">
-      <DependentUpon>AttachmentListTool.cs</DependentUpon>
+    <EmbeddedResource Include="Attachment\AttachmentUploadTool.resx">
+      <DependentUpon>AttachmentUploadTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Attachment\ImageAttachmentTool.resx">
       <DependentUpon>ImageAttachmentTool.cs</DependentUpon>

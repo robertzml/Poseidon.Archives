@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Archives.Utility
 {
-    partial class AttachmentListTool
+    partial class AttachmentUploadTool
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.lbAttachments = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsAttachment = new System.Windows.Forms.BindingSource(this.components);
+            this.bsAttachment = new System.Windows.Forms.BindingSource();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();

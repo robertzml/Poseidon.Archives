@@ -17,7 +17,7 @@ namespace Poseidon.Archives.Utility
     /// <summary>
     /// 附件管理工具
     /// </summary>
-    public partial class AttachmentListTool : DevExpress.XtraEditors.XtraUserControl
+    public partial class AttachmentUploadTool : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
         /// <summary>
@@ -27,7 +27,7 @@ namespace Poseidon.Archives.Utility
         #endregion //Field
 
         #region Constructor
-        public AttachmentListTool()
+        public AttachmentUploadTool()
         {
             InitializeComponent();
         }
@@ -99,7 +99,16 @@ namespace Poseidon.Archives.Utility
             var attach = this.lbAttachments.SelectedItem as Attachment;
             if (MessageUtil.ConfirmYesNo("是否删除选定附件:" + attach.Name) == DialogResult.Yes)
             {
-                this.attachments.Remove(attach);
+                bool result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(attach.Id);
+
+                if (result)
+                {
+                    this.attachments.Remove(attach);
+                }
+                else
+                {
+                    MessageUtil.ShowWarning("删除附件失败");
+                }
             }
         }
         #endregion //Event
