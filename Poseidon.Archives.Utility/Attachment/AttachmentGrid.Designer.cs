@@ -147,6 +147,7 @@
             this.attachmentGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.attachmentGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.attachmentGridView.OptionsCustomization.AllowGroup = false;
+            this.attachmentGridView.OptionsFind.AlwaysVisible = true;
             this.attachmentGridView.OptionsMenu.EnableGroupPanelMenu = false;
             this.attachmentGridView.OptionsView.EnableAppearanceEvenRow = true;
             this.attachmentGridView.OptionsView.EnableAppearanceOddRow = true;

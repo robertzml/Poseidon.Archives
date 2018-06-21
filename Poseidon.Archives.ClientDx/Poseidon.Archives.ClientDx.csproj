@@ -116,12 +116,6 @@
     <Compile Include="Attachment\FrmAttachmentManage.Designer.cs">
       <DependentUpon>FrmAttachmentManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\FrmMultiUpload.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utility\FrmMultiUpload.Designer.cs">
-      <DependentUpon>FrmMultiUpload.cs</DependentUpon>
-    </Compile>
     <Compile Include="Overview\FrmArchivesManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,29 +140,11 @@
     <Compile Include="Component\UploadFileGrid.Designer.cs">
       <DependentUpon>UploadFileGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\UploadTool.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Utility\UploadTool.Designer.cs">
-      <DependentUpon>UploadTool.cs</DependentUpon>
-    </Compile>
     <Compile Include="Component\AttachmentGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Component\AttachmentGrid.Designer.cs">
       <DependentUpon>AttachmentGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utility\ImageAttachmentTool.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Utility\ImageAttachmentTool.Designer.cs">
-      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utility\AttachmentListTool.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Utility\AttachmentListTool.Designer.cs">
-      <DependentUpon>AttachmentListTool.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -225,18 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Component\AttachmentGrid.resx">
       <DependentUpon>AttachmentGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\FrmMultiUpload.resx">
-      <DependentUpon>FrmMultiUpload.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\ImageAttachmentTool.resx">
-      <DependentUpon>ImageAttachmentTool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\AttachmentListTool.resx">
-      <DependentUpon>AttachmentListTool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utility\UploadTool.resx">
-      <DependentUpon>UploadTool.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Attachment.datasource" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Directory.datasource" />
