@@ -286,3 +286,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/Poseidon.Archives.ClientDx/Properties/*.licx
+/Poseidon.Archives.Utility/Properties/licenses.licx
