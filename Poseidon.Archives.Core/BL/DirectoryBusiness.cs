@@ -72,7 +72,7 @@ namespace Poseidon.Archives.Core.BL
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public void Create(Directory entity, LoginUser user)
+        public void Create(Directory entity, ILoginUser user)
         {
             if (CheckExist(entity))
             {
@@ -116,7 +116,7 @@ namespace Poseidon.Archives.Core.BL
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public bool Update(Directory entity, LoginUser user)
+        public bool Update(Directory entity, ILoginUser user)
         {
             if (CheckExist(entity))
             {

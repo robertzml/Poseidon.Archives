@@ -43,7 +43,7 @@ namespace Poseidon.Archives.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        public void Create(Document entity, LoginUser user)
+        public void Create(Document entity, ILoginUser user)
         {
             entity.CreateBy = new UpdateStamp
             {
