@@ -92,13 +92,15 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// 异步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        public async Task<Attachment> UploadAsync(UploadFileInfo data)
+        public async Task<Attachment> UploadAsync(UploadFileInfo data, string module)
         {
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("module", module);
 
                 //表明是通过multipart/form-data的方式上传数据  
                 using (var content = new MultipartFormDataContent())
@@ -124,13 +126,14 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 }
             }
         }
-        
+
         /// <summary>
         /// 同步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        public Attachment Upload(UploadFileInfo data)
+        public Attachment Upload(UploadFileInfo data, string module)
         {
             try
             {
@@ -138,6 +141,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                 {
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("module", module);
 
                     //表明是通过multipart/form-data的方式上传数据
                     using (var content = new MultipartFormDataContent())
@@ -163,7 +167,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Instance.Exception("同步上传附件异常", e);
                 return null;

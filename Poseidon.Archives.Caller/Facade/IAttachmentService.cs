@@ -20,15 +20,17 @@ namespace Poseidon.Archives.Caller.Facade
         /// 异步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        Task<Attachment> UploadAsync(UploadFileInfo data);
+        Task<Attachment> UploadAsync(UploadFileInfo data, string module);
 
         /// <summary>
         /// 同步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        Attachment Upload(UploadFileInfo data);
+        Attachment Upload(UploadFileInfo data, string module);
 
         /// <summary>
         /// 同步下载附件

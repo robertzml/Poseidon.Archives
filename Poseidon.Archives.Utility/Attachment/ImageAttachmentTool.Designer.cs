@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.zoomBar = new DevExpress.XtraEditors.TrackBarControl();
             this.lbAttachments = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsAttachment = new System.Windows.Forms.BindingSource(this.components);
+            this.bsAttachment = new System.Windows.Forms.BindingSource();
             this.picView = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();

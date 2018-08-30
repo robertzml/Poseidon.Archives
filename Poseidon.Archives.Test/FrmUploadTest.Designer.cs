@@ -1,6 +1,6 @@
-﻿namespace Poseidon.Archives.Utility
+﻿namespace Poseidon.Archives.Test
 {
-    partial class FrmMultiUpload
+    partial class FrmUploadTest
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uploadTool = new Poseidon.Archives.Utility.UploadTool();
+            this.attachmentUploadTool1 = new Poseidon.Archives.Utility.AttachmentUploadTool();
             this.SuspendLayout();
             // 
-            // uploadTool
+            // attachmentUploadTool1
             // 
-            this.uploadTool.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadTool.Location = new System.Drawing.Point(0, 0);
-            this.uploadTool.Name = "uploadTool";
-            this.uploadTool.Size = new System.Drawing.Size(620, 355);
-            this.uploadTool.TabIndex = 0;
+            this.attachmentUploadTool1.Location = new System.Drawing.Point(12, 12);
+            this.attachmentUploadTool1.Name = "attachmentUploadTool1";
+            this.attachmentUploadTool1.Size = new System.Drawing.Size(315, 355);
+            this.attachmentUploadTool1.TabIndex = 0;
             // 
-            // FrmMultiUpload
+            // FrmUploadTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 355);
-            this.Controls.Add(this.uploadTool);
-            this.Name = "FrmMultiUpload";
-            this.Text = "FrmMultiUpload";
+            this.ClientSize = new System.Drawing.Size(830, 502);
+            this.Controls.Add(this.attachmentUploadTool1);
+            this.Name = "FrmUploadTest";
+            this.Text = "FrmUploadTest";
+            this.Load += new System.EventHandler(this.FrmUploadTest_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private UploadTool uploadTool;
+        private Utility.AttachmentUploadTool attachmentUploadTool1;
     }
 }

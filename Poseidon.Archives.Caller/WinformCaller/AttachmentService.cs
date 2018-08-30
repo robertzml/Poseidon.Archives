@@ -40,8 +40,9 @@ namespace Poseidon.Archives.Caller.WinformCaller
         /// 异步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        public Task<Attachment> UploadAsync(UploadFileInfo data)
+        public Task<Attachment> UploadAsync(UploadFileInfo data, string module)
         {
             throw new NotImplementedException();
         }
@@ -50,8 +51,9 @@ namespace Poseidon.Archives.Caller.WinformCaller
         /// 同步上传单个附件
         /// </summary>
         /// <param name="data">上传附件信息</param>
+        /// <param name="module">模块名称</param>
         /// <returns></returns>
-        public Attachment Upload(UploadFileInfo data)
+        public Attachment Upload(UploadFileInfo data, string module)
         {
             throw new NotImplementedException();
         }

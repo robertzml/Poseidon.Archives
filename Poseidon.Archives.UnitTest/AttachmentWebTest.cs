@@ -42,7 +42,7 @@ namespace Poseidon.Archives.UnitTest
             info.LocalPath = filePath;
             info.MD5Hash = Hasher.GetFileMD5Hash(filePath);
 
-            var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info);
+            var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info, "Test");
             //task.ContinueWith<Attachment>(r => Console)
 
             var attachment = task.Result;

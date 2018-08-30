@@ -26,11 +26,22 @@ namespace Poseidon.Archives.Utility
         /// 上传附件
         /// </summary>
         private Attachment attachment;
+
+        /// <summary>
+        /// 模块名称
+        /// </summary>
+        private string module;
         #endregion //Field
 
         #region Constructor
-        public FrmUpload()
+        /// <summary>
+        /// 附件上传窗体
+        /// </summary>
+        /// <param name="module">模块名称</param>
+        public FrmUpload(string module)
         {
+            this.module = module;
+
             InitializeComponent();
         }
         #endregion //Constructor
@@ -99,7 +110,7 @@ namespace Poseidon.Archives.Utility
                     info.LocalPath = this.txtFile.Text;
                     info.Remark = this.txtRemark.Text;
 
-                    var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info);
+                    var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info, module);
                     return result;
                 });
 

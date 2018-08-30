@@ -10,11 +10,36 @@ using System.Windows.Forms;
 
 namespace Poseidon.Archives.Utility
 {
-    public partial class FrmMultiUpload : Form
+    using Poseidon.Winform.Base;
+
+    /// <summary>
+    /// 多文件上传窗体
+    /// </summary>
+    public partial class FrmMultiUpload : BaseSingleForm
     {
-        public FrmMultiUpload()
+        #region Field
+        /// <summary>
+        /// 模块名称
+        /// </summary>
+        private string module;
+        #endregion //Field
+
+        #region Constructor
+        public FrmMultiUpload(string module)
         {
+            this.module = module;
+
             InitializeComponent();
         }
+        #endregion //Constructor
+
+        #region Function
+        protected override void InitForm()
+        {
+            this.uploadTool.Init(this.module);
+
+            base.InitForm();
+        }
+        #endregion //Function
     }
 }

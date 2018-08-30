@@ -34,6 +34,11 @@ namespace Poseidon.Archives.Utility
         /// 已上传文件数据
         /// </summary>
         private List<Attachment> attachmentList = new List<Attachment>();
+
+        /// <summary>
+        /// 模块名称
+        /// </summary>
+        private string module;
         #endregion //Field
 
         #region Constructor
@@ -42,6 +47,17 @@ namespace Poseidon.Archives.Utility
             InitializeComponent();
         }
         #endregion //Constructor
+
+        #region Method
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="module">模块名称</param>
+        public void Init(string module)
+        {
+            this.module = module;
+        }
+        #endregion //Method
 
         #region Function
         /// <summary>
@@ -63,7 +79,7 @@ namespace Poseidon.Archives.Utility
                     if (item.Status == UploadStatus.Complete)
                         continue;
 
-                    var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(item);
+                    var task = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(item, module);
 
                     var r = await task;
 

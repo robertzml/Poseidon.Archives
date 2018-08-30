@@ -82,7 +82,7 @@ namespace Poseidon.Attachment.UnitTest
             info.Remark = "8dfs";
             info.LocalPath = filePath;
 
-            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info);
+            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).UploadAsync(info, "Test");
 
             var attachment = result.Result;
 
@@ -102,7 +102,7 @@ namespace Poseidon.Attachment.UnitTest
             info.Remark = "qwert";
             info.LocalPath = filePath;
 
-            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Upload(info);
+            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Upload(info, "Test");
 
             var attachment = result;
 
@@ -161,7 +161,7 @@ namespace Poseidon.Attachment.UnitTest
             info.MD5Hash = Hasher.GetFileMD5Hash(filePath);
             info.LocalPath = filePath;
 
-            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Upload(info);
+            var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Upload(info, "Test");
 
             var attachment = result;
 

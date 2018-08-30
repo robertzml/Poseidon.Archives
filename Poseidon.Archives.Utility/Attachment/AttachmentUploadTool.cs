@@ -24,6 +24,11 @@ namespace Poseidon.Archives.Utility
         /// 相关附件
         /// </summary>
         private List<Attachment> attachments;
+
+        /// <summary>
+        /// 模块名称
+        /// </summary>
+        private string module;
         #endregion //Field
 
         #region Constructor
@@ -41,20 +46,24 @@ namespace Poseidon.Archives.Utility
         /// 初始化
         /// </summary>
         /// <param name="ids"></param>
-        public void Init(List<string> ids)
+        /// <param name="module">模块名称</param>
+        public void Init(List<string> ids, string module)
         {
             if (ids != null && ids.Count > 0)
                 this.attachments = CallerFactory<IAttachmentService>.GetInstance(CallerType.Win).FindListInIds(ids).ToList();
             else
                 this.attachments = new List<Attachment>();
             this.bsAttachment.DataSource = attachments;
+            this.module = module;
         }
 
         /// <summary>
         /// 初始化
         /// </summary>
-        public void Init()
+        /// <param name="module">模块名称</param>
+        public void Init(string module)
         {
+            this.module = module;
             this.attachments = new List<Attachment>();
             this.bsAttachment.DataSource = attachments;
         }
@@ -77,7 +86,7 @@ namespace Poseidon.Archives.Utility
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmUpload upload = new FrmUpload();
+            FrmUpload upload = new FrmUpload(module);
             if (upload.ShowDialog() == DialogResult.OK)
             {
                 this.attachments.Add(upload.Attachment);

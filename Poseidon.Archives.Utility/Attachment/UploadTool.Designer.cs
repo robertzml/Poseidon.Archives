@@ -146,6 +146,9 @@
             this.uploadFileGrid.Location = new System.Drawing.Point(12, 12);
             this.uploadFileGrid.Name = "uploadFileGrid";
             this.uploadFileGrid.ShowAddMenu = false;
+            this.uploadFileGrid.ShowDeleteMenu = false;
+            this.uploadFileGrid.ShowEditMenu = false;
+            this.uploadFileGrid.ShowFindPanel = false;
             this.uploadFileGrid.ShowFooter = false;
             this.uploadFileGrid.ShowLineNumber = true;
             this.uploadFileGrid.ShowMenu = false;
