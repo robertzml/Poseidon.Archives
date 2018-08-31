@@ -136,6 +136,7 @@
     <EmbeddedResource Include="Forms\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ namespace Poseidon.Archives.Core.BL
         /// <summary>
         /// 分块文件大小 200M
         /// </summary>
-        private readonly int maxBlockSize = 200000;
+        //private readonly int maxBlockSize = 200000;
         #endregion //Field
 
         #region Constructor
