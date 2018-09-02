@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.attachmentGrid = new Poseidon.Archives.ClientDx.AttachmentGrid();
+            this.attachmentGrid = new Poseidon.Archives.Utility.AttachmentGrid();
             this.folderTree = new System.Windows.Forms.TreeView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1.SuspendLayout();
@@ -114,7 +114,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private AttachmentGrid attachmentGrid;
+        private Archives.Utility.AttachmentGrid attachmentGrid;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.TreeView folderTree;
     }

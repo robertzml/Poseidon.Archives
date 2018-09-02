@@ -134,18 +134,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Component\UploadFileGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Component\UploadFileGrid.Designer.cs">
-      <DependentUpon>UploadFileGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Component\AttachmentGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Component\AttachmentGrid.Designer.cs">
-      <DependentUpon>AttachmentGrid.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poseidon.Archives.Caller\Poseidon.Archives.Caller.csproj">
@@ -171,9 +159,6 @@
     <EmbeddedResource Include="Component\DocumentGrid.resx">
       <DependentUpon>DocumentGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Component\UploadFileGrid.resx">
-      <DependentUpon>UploadFileGrid.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Directory\FrmDirectoryAdd.resx">
       <DependentUpon>FrmDirectoryAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,9 +183,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Component\AttachmentGrid.resx">
-      <DependentUpon>AttachmentGrid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\DataSources\Poseidon.Archives.Core.DL.Attachment.datasource" />

@@ -37,6 +37,7 @@
             this.menuMultiUpload = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAttachmentMan = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUpload = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAttachmentFix = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             // menuDirectoryMan
             // 
             this.menuDirectoryMan.Name = "menuDirectoryMan";
-            this.menuDirectoryMan.Size = new System.Drawing.Size(152, 22);
+            this.menuDirectoryMan.Size = new System.Drawing.Size(124, 22);
             this.menuDirectoryMan.Text = "目录管理";
             this.menuDirectoryMan.Click += new System.EventHandler(this.menuDirectoryMan_Click);
             // 
@@ -78,7 +79,7 @@
             // menuDocumentMan
             // 
             this.menuDocumentMan.Name = "menuDocumentMan";
-            this.menuDocumentMan.Size = new System.Drawing.Size(152, 22);
+            this.menuDocumentMan.Size = new System.Drawing.Size(124, 22);
             this.menuDocumentMan.Text = "档案管理";
             this.menuDocumentMan.Click += new System.EventHandler(this.menuDocumentMan_Click);
             // 
@@ -87,7 +88,8 @@
             this.menuAttachment.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuMultiUpload,
             this.menuAttachmentMan,
-            this.menuUpload});
+            this.menuUpload,
+            this.menuAttachmentFix});
             this.menuAttachment.Name = "menuAttachment";
             this.menuAttachment.Size = new System.Drawing.Size(68, 21);
             this.menuAttachment.Text = "附件测试";
@@ -112,6 +114,13 @@
             this.menuUpload.Size = new System.Drawing.Size(152, 22);
             this.menuUpload.Text = "上传测试";
             this.menuUpload.Click += new System.EventHandler(this.menuUpload_Click);
+            // 
+            // menuAttachmentFix
+            // 
+            this.menuAttachmentFix.Name = "menuAttachmentFix";
+            this.menuAttachmentFix.Size = new System.Drawing.Size(152, 22);
+            this.menuAttachmentFix.Text = "附件更新";
+            this.menuAttachmentFix.Click += new System.EventHandler(this.menuAttachmentFix_Click);
             // 
             // MainForm
             // 
@@ -141,6 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuMultiUpload;
         private System.Windows.Forms.ToolStripMenuItem menuAttachmentMan;
         private System.Windows.Forms.ToolStripMenuItem menuUpload;
+        private System.Windows.Forms.ToolStripMenuItem menuAttachmentFix;
     }
 }
 
