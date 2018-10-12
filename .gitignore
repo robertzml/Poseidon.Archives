@@ -288,3 +288,4 @@ __pycache__/
 *.xsd.cs
 /Poseidon.Archives.ClientDx/Properties/*.licx
 /Poseidon.Archives.Utility/Properties/licenses.licx
+/Poseidon.Archives.Test/Properties/licenses.licx

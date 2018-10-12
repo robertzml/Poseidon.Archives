@@ -205,7 +205,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
         /// </summary>
         /// <param name="id">附件ID</param>
         /// <returns></returns>
-        public override bool Delete(string id)
+        public override (bool success, string errorMessage) Delete(string id)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -217,7 +217,7 @@ namespace Poseidon.Archives.Caller.WebApiCaller
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return true;
+                    return (true, "");
                 }
                 else
                 {

@@ -108,9 +108,9 @@ namespace Poseidon.Archives.Utility
             var attach = this.lbAttachments.SelectedItem as Attachment;
             if (MessageUtil.ConfirmYesNo("是否删除选定附件:" + attach.Name) == DialogResult.Yes)
             {
-                bool result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(attach.Id);
+                var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(attach.Id);
 
-                if (result)
+                if (result.success)
                 {
                     this.attachments.Remove(attach);
                 }

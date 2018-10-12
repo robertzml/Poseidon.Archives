@@ -55,7 +55,7 @@ namespace Poseidon.Archives.Core.BL
         /// <returns></returns>
         private bool CheckInvalidChar(Directory entity)
         {
-            if (entity.FileName.IndexOfAny(Path.GetInvalidPathChars()) > 0)            
+            if (entity.FileName.IndexOfAny(Path.GetInvalidPathChars()) > 0)
                 return false;
 
             if (entity.FileName.IndexOfAny(new char[] { '/', '\\', '?', '#', '!', '@', '&', '$' }) > 0)
@@ -116,15 +116,15 @@ namespace Poseidon.Archives.Core.BL
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public bool Update(Directory entity, ILoginUser user)
+        public (bool success, string errorMessage) Update(Directory entity, ILoginUser user)
         {
             if (CheckExist(entity))
             {
-                throw new PoseidonException("目录已存在");
+                return (false, "目录已存在");
             }
             if (!CheckInvalidChar(entity))
             {
-                throw new PoseidonException("文件夹名含有非法字符");
+                return (false, "文件夹名含有非法字符");
             }
 
             entity.UpdateBy = new UpdateStamp

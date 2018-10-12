@@ -289,7 +289,11 @@ namespace Poseidon.Archives.Utility
 
             if (MessageUtil.ConfirmYesNo("是否删除指定附件:" + select.Name) == DialogResult.Yes)
             {
-                CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(select.Id);
+                var result = CallerFactory<IAttachmentService>.GetInstance(CallerType.WebApi).Delete(select.Id);
+                if (!result.success)
+                {
+                    MessageUtil.ShowClaim("删除附件失败");
+                }
             }
         }
         #endregion //Event

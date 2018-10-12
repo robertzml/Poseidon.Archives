@@ -29,8 +29,8 @@ namespace Poseidon.Archives.Test
             {
                 item.Folder = "Default/" + item.Folder;
 
-                bool result = BusinessFactory<AttachmentBusiness>.Instance.Update(item);
-                if (!result)
+                var result = BusinessFactory<AttachmentBusiness>.Instance.Update(item);
+                if (!result.success)
                     MessageBox.Show("error");
             }
 
